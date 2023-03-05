@@ -14002,7 +14002,15 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Chapter-1:-An-Introduction-to-Python">Chapter 1: An Introduction to Python<a class="anchor-link" href="#Chapter-1:-An-Introduction-to-Python">&#182;</a></h1>
+<h1 id="Chapter-1:-The-IDLE-Integrated-Development-Learning-Environment">Chapter 1: The IDLE Integrated Development Learning Environment<a class="anchor-link" href="#Chapter-1:-The-IDLE-Integrated-Development-Learning-Environment">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Readers can download Python IDLE here:</p>
+<p><a href="https://www.python.org">https://www.python.org</a></p>
+<p>The examples below in Chapter 1 have been run in Google Colab so that they can be published on the Web. Readers should run the code in the book in Python IDLE and attempt the exercises in IDLE.</p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -39843,9 +39851,9 @@ SUVORK5CYII=\
 
 
 
-<div id="70cd5264-2ed8-4b0d-bae2-9603ee2de944" class="jupyter-widgets jp-OutputArea-output ">
+<div id="60117c5c-2ac9-4e77-b735-3746a58c2405" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('70cd5264-2ed8-4b0d-bae2-9603ee2de944');
+var element = document.getElementById('60117c5c-2ac9-4e77-b735-3746a58c2405');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "17cc259e7a8545459294d7a683b5fd13", "version_major": 2, "version_minor": 0}
@@ -39904,9 +39912,9 @@ var element = document.getElementById('70cd5264-2ed8-4b0d-bae2-9603ee2de944');
 
 
 
-<div id="8ebebd02-b8e8-4b55-b999-43bd3dec6325" class="jupyter-widgets jp-OutputArea-output ">
+<div id="18472a40-5ab0-4754-a29a-b8b2e0b9734a" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('8ebebd02-b8e8-4b55-b999-43bd3dec6325');
+var element = document.getElementById('18472a40-5ab0-4754-a29a-b8b2e0b9734a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "57a3fca6b60e4c86a390b93c9abfeb34", "version_major": 2, "version_minor": 0}
@@ -40852,7 +40860,9 @@ Do not reject H0. Insufficient evidence to suggest Thalia is correct.
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4.4(f): Proof.</span>
-<span class="c1"># For the actual proof, use the priniple of mathematical induction.</span>
+<span class="c1"># For the actual proof, for all natural numbers n, use the principle of mathematical induction.</span>
+<span class="c1"># P(n): proposition (2*n+3)**2-(2*n-3)**2 is divisible by 6, for all natural numbers, n say.</span>
+<span class="c1"># Show true for P(0), assume true for P(k) and prove true for P(k+1).</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
   <span class="k">if</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">6</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failure&quot;</span><span class="p">)</span>
