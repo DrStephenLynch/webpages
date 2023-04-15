@@ -13997,20 +13997,13 @@ a.anchor-link {
 <p><img src = "https://github.com/DrStephenLynch/webpages/blob/main/Solutions_Section_1.png?raw=true" alt = "My Image" ></p>
 <p>Copyright CRC Press 2023 - present <a href="https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#"> CRC Press </a></p>
 <p>Author: Dr Stephen Lynch <a href="https://www.advance-he.ac.uk/ntfs/dr-stephen-lynch">National Teaching Fellow</a> FIMA SFHEA</p>
+<p><a href="https://www.mmu.ac.uk/staff/profile/dr-stephen-lynch">Stephen Lynch Homepage</a></p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Chapter-1:-The-IDLE-Integrated-Development-Learning-Environment">Chapter 1: The IDLE Integrated Development Learning Environment<a class="anchor-link" href="#Chapter-1:-The-IDLE-Integrated-Development-Learning-Environment">&#182;</a></h1>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Readers can download Python IDLE here:</p>
-<p><a href="https://www.python.org">https://www.python.org</a></p>
-<p>The examples below in Chapter 1 have been run in Google Colab so that they can be published on the Web. Readers should run the code in the book in Python IDLE and attempt the exercises in IDLE.</p>
-
+<h1 id="Chapter-1:-An-Introduction-to-Python">Chapter 1: An Introduction to Python<a class="anchor-link" href="#Chapter-1:-An-Introduction-to-Python">&#182;</a></h1>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -14019,7 +14012,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.1(a): Brackets.</span>
-<span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="mi">8</span><span class="p">))</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14058,7 +14051,7 @@ a.anchor-link {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.1(b): Trigonometric functions.</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14097,7 +14090,7 @@ a.anchor-link {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.1(c): Floor and ceiling functions.</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span> <span class="p">,</span> <span class="n">ceil</span>
-<span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">-</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">-</span> <span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14174,7 +14167,7 @@ a.anchor-link {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.1(e): Fractions.</span>
 <span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
-<span class="n">Fraction</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">-</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">*</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Fraction</span><span class="p">(</span><span class="mi">4</span> <span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">*</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span> <span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14259,7 +14252,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.2(b): Generating data.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span> <span class="p">,</span> <span class="mi">200</span> <span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14301,7 +14294,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.2(c): Lists of lists.</span>
-<span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
+<span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">4</span> <span class="p">,</span> <span class="mi">5</span> <span class="p">,</span> <span class="mi">6</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">7</span> <span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
 <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
@@ -14340,7 +14333,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.2(d): Compute the mean.</span>
-<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span>
+<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span> <span class="p">,</span> <span class="mi">3</span> <span class="p">,</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">5</span> <span class="p">,</span> <span class="mi">3</span> <span class="p">,</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
 <span class="n">mean_list</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mean_list</span><span class="p">)</span>
 </pre></div>
@@ -14535,7 +14528,7 @@ Well done Ste! You guessed my number in 5 guesses!
 <span class="k">def</span> <span class="nf">pythagorean_triples</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
             <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="n">c</span> <span class="o">-</span> <span class="n">b</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>           
@@ -14545,7 +14538,7 @@ Well done Ste! You guessed my number in 5 guesses!
 <span class="k">def</span> <span class="nf">pythagorean_triples</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
             <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
             <span class="k">if</span> <span class="n">c</span> <span class="o">-</span> <span class="n">b</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
@@ -14925,10 +14918,10 @@ Put clearscreen() as the first line in a cell (after the import command) to re-r
   <span class="n">begin_fill</span><span class="p">()</span> <span class="c1"># Fill shape</span>
   <span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">SierpinskiSquare</span><span class="p">(</span><span class="n">length</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">SierpinskiSquare</span><span class="p">(</span><span class="n">length</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">fd</span><span class="p">(</span><span class="n">length</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">SierpinskiSquare</span><span class="p">(</span><span class="n">length</span> <span class="o">/</span> <span class="mi">3</span> <span class="p">,</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">fd</span><span class="p">(</span><span class="n">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">SierpinskiSquare</span><span class="p">(</span><span class="n">length</span> <span class="o">/</span> <span class="mi">3</span> <span class="p">,</span> <span class="n">level</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">fd</span><span class="p">(</span><span class="n">length</span> <span class="o">/</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">lt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="c1"># Left turn 90 degrees</span>
   <span class="n">end_fill</span><span class="p">()</span>
 <span class="n">SierpinskiSquare</span><span class="p">(</span><span class="mi">200</span> <span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -39851,9 +39844,9 @@ SUVORK5CYII=\
 
 
 
-<div id="fd07159a-dd7d-4356-8600-e73e02a48d86" class="jupyter-widgets jp-OutputArea-output ">
+<div id="9c5ac8bc-80d5-497c-8dd0-4caafefe98d1" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('fd07159a-dd7d-4356-8600-e73e02a48d86');
+var element = document.getElementById('9c5ac8bc-80d5-497c-8dd0-4caafefe98d1');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "17cc259e7a8545459294d7a683b5fd13", "version_major": 2, "version_minor": 0}
@@ -39912,9 +39905,9 @@ var element = document.getElementById('fd07159a-dd7d-4356-8600-e73e02a48d86');
 
 
 
-<div id="59f63794-f8e0-432d-b51d-fcd1d55723db" class="jupyter-widgets jp-OutputArea-output ">
+<div id="9d18d4a4-5524-4085-a696-18feb47022c0" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('59f63794-f8e0-432d-b51d-fcd1d55723db');
+var element = document.getElementById('9d18d4a4-5524-4085-a696-18feb47022c0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "57a3fca6b60e4c86a390b93c9abfeb34", "version_major": 2, "version_minor": 0}
@@ -40856,18 +40849,16 @@ Do not reject H0. Insufficient evidence to suggest Thalia is correct.
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4.4(f): Proof.</span>
-<span class="c1"># For the actual proof, for all natural numbers n, use the principle of mathematical induction.</span>
-<span class="c1"># P(n): proposition (2*n+3)**2-(2*n-3)**2 is divisible by 6, for all natural numbers, n say.</span>
-<span class="c1"># Show true for P(1), assume true for P(k) and prove true for P(k+1).</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
-  <span class="k">if</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="c1"># For the actual proof, use the priniple of mathematical induction.</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+  <span class="k">if</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">6</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failure&quot;</span><span class="p">)</span>
   <span class="k">break</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(2 * n + 3)**2 - (2 * n - 3)**2, is a multiple of 6, for 1&lt;=n&lt;=100.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(2 * n + 3)**2 - (2 * n - 3)**2, is a multiple of 6, for 0&lt;=n&lt;=100.&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -40887,7 +40878,7 @@ Do not reject H0. Insufficient evidence to suggest Thalia is correct.
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(2 * n + 3)**2 - (2 * n - 3)**2, is a multiple of 6, for 1&lt;=n&lt;=100.
+<pre>(2 * n + 3)**2 - (2 * n - 3)**2, is a multiple of 6, for 0&lt;=n&lt;=100.
 </pre>
 </div>
 </div>
