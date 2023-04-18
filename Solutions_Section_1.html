@@ -16631,12 +16631,12 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(e): Solve y&quot;+5y&#39;+6y=10sin(t).</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">Function</span><span class="p">)</span>
-<span class="n">ODE5</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">ODE5</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 <span class="n">sol5</span> <span class="o">=</span> <span class="n">dsolve</span><span class="p">(</span><span class="n">ODE5</span> <span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol5</span><span class="p">)</span>
 </pre></div>
@@ -16658,7 +16658,7 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Eq(y(t), C1*exp(t*(-5 - sqrt(21))/2) + C2*exp(t*(-5 + sqrt(21))/2) - 2*cos(t))
+<pre>Eq(y(t), C1*exp(-3*t) + C2*exp(-2*t) + sin(t) - cos(t))
 </pre>
 </div>
 </div>
@@ -37845,9 +37845,9 @@ wBQKhUIRlvz/Q3DgXa9MgxcAAAAASUVORK5CYII=\
 
 
 
-<div id="70bb088d-ec5c-4b1d-8050-b2b69e37a582" class="jupyter-widgets jp-OutputArea-output ">
+<div id="6e6db9dc-5dad-403c-8246-2fcc16023dfd" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('70bb088d-ec5c-4b1d-8050-b2b69e37a582');
+var element = document.getElementById('6e6db9dc-5dad-403c-8246-2fcc16023dfd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "7b89c1b43b0145d0b3142084f556740b", "version_major": 2, "version_minor": 0}
@@ -37907,9 +37907,9 @@ var element = document.getElementById('70bb088d-ec5c-4b1d-8050-b2b69e37a582');
 
 
 
-<div id="4053be4c-7a18-4279-a925-1b676872efd3" class="jupyter-widgets jp-OutputArea-output ">
+<div id="fac190ac-6508-419d-ada7-af011ad91a57" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('4053be4c-7a18-4279-a925-1b676872efd3');
+var element = document.getElementById('fac190ac-6508-419d-ada7-af011ad91a57');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "2c9be893bc504e1488e8de16967e2637", "version_major": 2, "version_minor": 0}
