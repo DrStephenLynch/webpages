@@ -16474,15 +16474,15 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(a): Solve dx/dt=-x/t.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(a): Solve dy/dx=-y/x.</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">Function</span><span class="p">)</span>
-<span class="n">ODE1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="o">-</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="n">t</span><span class="p">)</span>
-<span class="n">sol1</span> <span class="o">=</span> <span class="n">dsolve</span><span class="p">(</span><span class="n">ODE1</span> <span class="p">,</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">Function</span><span class="p">)</span>
+<span class="n">ODE1</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">sol1</span> <span class="o">=</span> <span class="n">dsolve</span><span class="p">(</span><span class="n">ODE1</span> <span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol1</span><span class="p">)</span>
 </pre></div>
 
@@ -16503,7 +16503,7 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Eq(x(t), C1/t)
+<pre>Eq(y(x), C1/x)
 </pre>
 </div>
 </div>
@@ -16515,12 +16515,12 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(b): Solve dx/dt=x/t^2.</span>
-<span class="n">ODE2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="o">-</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sol2</span> <span class="o">=</span> <span class="n">dsolve</span><span class="p">(</span><span class="n">ODE2</span> <span class="p">,</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(b): Solve dy/dx=y/x^2.</span>
+<span class="n">ODE2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sol2</span> <span class="o">=</span> <span class="n">dsolve</span><span class="p">(</span><span class="n">ODE2</span> <span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol2</span><span class="p">)</span>
 </pre></div>
 
@@ -16541,7 +16541,7 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Eq(x(t), C1*exp(1/t))
+<pre>Eq(y(x), C1*exp(-1/x))
 </pre>
 </div>
 </div>
@@ -16553,10 +16553,12 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(c): Solve dx/dt+x^2=1.</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">Function</span><span class="p">)</span>
 <span class="n">ODE3</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="o">-</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">sol3</span> <span class="o">=</span> <span class="n">dsolve</span><span class="p">(</span><span class="n">ODE3</span> <span class="p">,</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol3</span><span class="p">)</span>
@@ -16591,7 +16593,7 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(d): Solve dx/dt+x=sin(t).</span>
@@ -16617,7 +16619,7 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Eq(x(t), (C1 + exp(t)*sin(t)/2 - exp(t)*cos(t)/2)*exp(-t))
+<pre>Eq(x(t), C1*exp(-t) + sin(t)/2 - cos(t)/2)
 </pre>
 </div>
 </div>
@@ -16629,10 +16631,11 @@ $\displaystyle 22.9790855778861 - 14.7448051885587 i$
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3.1(e): Solve y&quot;+5y&#39;+6y=10sin(t).</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">Function</span><span class="p">)</span>
 <span class="n">ODE5</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 <span class="n">sol5</span> <span class="o">=</span> <span class="n">dsolve</span><span class="p">(</span><span class="n">ODE5</span> <span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol5</span><span class="p">)</span>
@@ -37842,9 +37845,9 @@ wBQKhUIRlvz/Q3DgXa9MgxcAAAAASUVORK5CYII=\
 
 
 
-<div id="696a0958-30b9-439d-ae90-81e6ab8fc468" class="jupyter-widgets jp-OutputArea-output ">
+<div id="70bb088d-ec5c-4b1d-8050-b2b69e37a582" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('696a0958-30b9-439d-ae90-81e6ab8fc468');
+var element = document.getElementById('70bb088d-ec5c-4b1d-8050-b2b69e37a582');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "7b89c1b43b0145d0b3142084f556740b", "version_major": 2, "version_minor": 0}
@@ -37904,9 +37907,9 @@ var element = document.getElementById('696a0958-30b9-439d-ae90-81e6ab8fc468');
 
 
 
-<div id="678ffad3-80ed-4246-bb35-38c8ae6f68c3" class="jupyter-widgets jp-OutputArea-output ">
+<div id="4053be4c-7a18-4279-a925-1b676872efd3" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('678ffad3-80ed-4246-bb35-38c8ae6f68c3');
+var element = document.getElementById('4053be4c-7a18-4279-a925-1b676872efd3');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "2c9be893bc504e1488e8de16967e2637", "version_major": 2, "version_minor": 0}
