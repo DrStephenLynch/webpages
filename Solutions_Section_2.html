@@ -15637,9 +15637,9 @@ $$3 \mathrm{NaHCO}_3+\mathrm{H}_3\mathrm{C}_6\mathrm{H}_5\mathrm{O}_7 \rightleft
 
 
 
-<div id="d9ce997f-411a-4318-b88d-381029a85a88" class="jupyter-widgets jp-OutputArea-output ">
+<div id="a6dc8475-4aa6-49f7-8b24-40d202e8d03d" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('d9ce997f-411a-4318-b88d-381029a85a88');
+var element = document.getElementById('a6dc8475-4aa6-49f7-8b24-40d202e8d03d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "e35b9915007d48fd92f0d5520890e046", "version_major": 2, "version_minor": 0}
@@ -15989,7 +15989,7 @@ rho -0.23496032413932816
 <span class="n">m1</span> <span class="p">,</span> <span class="n">m2</span> <span class="p">,</span> <span class="n">m3</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span>
 <span class="n">x10</span><span class="p">,</span> <span class="n">y10</span><span class="p">,</span> <span class="n">x20</span> <span class="p">,</span> <span class="n">y20</span> <span class="p">,</span> <span class="n">x30</span> <span class="p">,</span> <span class="n">y30</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span>
 <span class="n">tmax</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1000</span>
-<span class="c1"># Let x1=i1 and x2=i2.</span>
+<span class="c1"># For mass m1: x1 is displacement, dx1 is velocity, dy1 is acceleration.</span>
 <span class="k">def</span> <span class="nf">Mass_Spring</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">k1</span> <span class="p">,</span> <span class="n">k2</span> <span class="p">,</span> <span class="n">k3</span> <span class="p">,</span> <span class="n">k4</span><span class="p">):</span>
     <span class="n">x1</span> <span class="p">,</span> <span class="n">y1</span> <span class="p">,</span> <span class="n">x2</span> <span class="p">,</span> <span class="n">y2</span> <span class="p">,</span> <span class="n">x3</span> <span class="p">,</span> <span class="n">y3</span> <span class="o">=</span> <span class="n">X</span>
     <span class="n">dx1</span> <span class="o">=</span> <span class="n">y1</span>
@@ -33497,6 +33497,12 @@ Steady state after 11 iterations.
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The F-statistic is 3.295, the $p$-value is $p=0.0188&lt;0.05$, meaning there is statistically significant difference (so, we reject $H_0$, the null hypothesis). There is strong statistical evidence that the treatment has an effect on nitrous oxide levels, there is significant difference in mean concentrations due to drug treatments (we accept $H_1$).</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
