@@ -14365,13 +14365,13 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.3(a): Centigrade to Fahrenheit.</span>
-<span class="k">def</span> <span class="nf">C2F</span><span class="p">():</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter temperature in degrees Centigrade: &quot;</span><span class="p">))</span>
-    <span class="n">F</span> <span class="o">=</span> <span class="p">(</span><span class="n">C</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature in Fahrenheit is </span><span class="si">{:08.4f}</span><span class="s2"> F&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">F</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.3(a): Convert Fahrenheit to Centigrade.</span>
+<span class="k">def</span> <span class="nf">F2C</span><span class="p">():</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter temperature in degrees Fahrenheit: &quot;</span><span class="p">))</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="p">(</span><span class="n">F</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="mi">9</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature in Centigrade is </span><span class="si">{:08.4f}</span><span class="s2"> C&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
     
-<span class="n">C2F</span><span class="p">()</span>
+<span class="n">F2C</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14391,8 +14391,8 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Enter temperature in degrees Centigrade: 100
-Temperature in Fahrenheit is 212.0000 F
+<pre>Enter temperature in degrees Fahrenheit: 113
+Temperature in Centigrade is 045.0000 C
 </pre>
 </div>
 </div>
@@ -37833,9 +37833,9 @@ wBQKhUIRlvz/Q3DgXa9MgxcAAAAASUVORK5CYII=\
 
 
 
-<div id="19de7307-9a0a-4e32-bae0-7ef2ef176016" class="jupyter-widgets jp-OutputArea-output ">
+<div id="fb8c0d11-3eb6-4ffa-a9d1-67d800aa8744" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('19de7307-9a0a-4e32-bae0-7ef2ef176016');
+var element = document.getElementById('fb8c0d11-3eb6-4ffa-a9d1-67d800aa8744');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "7b89c1b43b0145d0b3142084f556740b", "version_major": 2, "version_minor": 0}
@@ -37895,9 +37895,9 @@ var element = document.getElementById('19de7307-9a0a-4e32-bae0-7ef2ef176016');
 
 
 
-<div id="3736f3c2-f705-4c8a-8029-386cad00f7eb" class="jupyter-widgets jp-OutputArea-output ">
+<div id="31653ccc-ff9f-4fbe-8baf-8150e0ec3b8b" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('3736f3c2-f705-4c8a-8029-386cad00f7eb');
+var element = document.getElementById('31653ccc-ff9f-4fbe-8baf-8150e0ec3b8b');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "2c9be893bc504e1488e8de16967e2637", "version_major": 2, "version_minor": 0}
