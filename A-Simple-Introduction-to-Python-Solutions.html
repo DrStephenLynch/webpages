@@ -36,7 +36,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14465,10 +14464,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14473,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14524,6 +14536,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 /* Hiding the collapser by default */
 .jp-Collapser {
   display: none;
+}
+
+@page {
+    margin: 0.5in; /* Margin for each printed piece of paper */
 }
 
 @media print {
@@ -14583,6 +14599,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <figure>
 <img src = "Jupyter-Notebook-Solutions.png" , width = "900">
 </figure>
+
 </div>
 </div>
 </div>
@@ -14649,9 +14666,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
 
@@ -14691,9 +14706,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -14733,9 +14746,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14775,9 +14786,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14817,9 +14826,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
@@ -14877,9 +14884,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
@@ -14919,9 +14924,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
@@ -14961,9 +14964,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -15003,9 +15004,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -15045,9 +15044,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -15104,9 +15101,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
@@ -15146,9 +15141,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -15188,9 +15181,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
@@ -15230,9 +15221,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
@@ -15273,9 +15262,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
@@ -15333,9 +15320,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
@@ -15375,9 +15360,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -15417,9 +15400,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15459,9 +15440,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
@@ -15501,9 +15480,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
@@ -15527,7 +15504,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="End-Solutions-for-Chapter-1">End Solutions for Chapter 1<a class="anchor-link" href="#End-Solutions-for-Chapter-1">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-1">End Solutions for Chapter 1<a class="anchor-link" href="#End-Solutions-for-Chapter-1">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -15594,9 +15571,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
@@ -15636,9 +15611,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
@@ -15678,9 +15651,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15704,7 +15675,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. (d) Create a dictionary.</span>
-<span class="n">car</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"brand"</span> <span class="p">:</span> <span class="s2">"BMW"</span> <span class="p">,</span> <span class="s2">"year"</span> <span class="p">:</span> <span class="s2">"2018"</span> <span class="p">,</span> <span class="s2">"color"</span> <span class="p">:</span> <span class="s2">"red"</span> <span class="p">,</span> <span class="s2">"mileage"</span> <span class="p">:</span> <span class="s2">"30000"</span> <span class="p">,</span> <span class="s2">"fuel"</span> <span class="p">:</span> <span class="s2">"petrol"</span><span class="p">}</span>
+<span class="n">car</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;brand&quot;</span> <span class="p">:</span> <span class="s2">&quot;BMW&quot;</span> <span class="p">,</span> <span class="s2">&quot;year&quot;</span> <span class="p">:</span> <span class="s2">&quot;2018&quot;</span> <span class="p">,</span> <span class="s2">&quot;color&quot;</span> <span class="p">:</span> <span class="s2">&quot;red&quot;</span> <span class="p">,</span> <span class="s2">&quot;mileage&quot;</span> <span class="p">:</span> <span class="s2">&quot;30000&quot;</span> <span class="p">,</span> <span class="s2">&quot;fuel&quot;</span> <span class="p">:</span> <span class="s2">&quot;petrol&quot;</span><span class="p">}</span>
 </pre></div>
 
      </div>
@@ -15734,10 +15705,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. Kelvin to Centigrade.</span>
 <span class="k">def</span> <span class="nf">K2C</span><span class="p">():</span>
-    <span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter temperature in Kelvin: '</span><span class="p">))</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter temperature in Kelvin: &#39;</span><span class="p">))</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">K</span> <span class="o">-</span> <span class="mf">273.15</span>
     <span class="c1"># Format the output to four significant figures.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Temperature in Centigrade is </span><span class="si">{:0.4g}</span><span class="s1"> degrees C'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Temperature in Centigrade is </span><span class="si">{:0.4g}</span><span class="s1"> degrees C&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
 <span class="n">K2C</span><span class="p">()</span>
 </pre></div>
 
@@ -15752,9 +15723,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15821,9 +15790,7 @@ $$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
@@ -15870,9 +15837,7 @@ $$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
@@ -15913,22 +15878,22 @@ $$
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4. (a) Guess the number.</span>
 <span class="kn">import</span> <span class="nn">random</span> <span class="c1"># Import the random module.</span>
 <span class="n">num_guesses</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Hi! What is your name? '</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Hi! What is your name? &#39;</span><span class="p">)</span>
 <span class="n">number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># A random integer between 1 and 20.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Welcome, </span><span class="si">{}</span><span class="s1">! I am thinking of an integer between 1 and 20.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome, </span><span class="si">{}</span><span class="s1">! I am thinking of an integer between 1 and 20.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 <span class="k">while</span> <span class="n">num_guesses</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Take a guess and type the integer? '</span><span class="p">))</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Take a guess and type the integer? &#39;</span><span class="p">))</span>
     <span class="n">num_guesses</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">number</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">'Your guess is too low.'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your guess is too low.&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">number</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">'Your guess is too high.'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your guess is too high.&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span>
         <span class="k">break</span>
 <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Well done </span><span class="si">{}</span><span class="s1">! You guessed my number in </span><span class="si">{}</span><span class="s1"> guesses!'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">num_guesses</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Well done </span><span class="si">{}</span><span class="s1">! You guessed my number in </span><span class="si">{}</span><span class="s1"> guesses!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">num_guesses</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Sorry, you lose! The number I was thinking of was </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sorry, you lose! The number I was thinking of was </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15942,9 +15907,7 @@ $$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16008,9 +15971,7 @@ Well done Seb! You guessed my number in 4 guesses!
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16042,7 +16003,7 @@ Well done Seb! You guessed my number in 4 guesses!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="End-Solutions-for-Chapter-2">End Solutions for Chapter 2<a class="anchor-link" href="#End-Solutions-for-Chapter-2">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-2">End Solutions for Chapter 2<a class="anchor-link" href="#End-Solutions-for-Chapter-2">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -16101,7 +16062,7 @@ Well done Seb! You guessed my number in 4 guesses!
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># You must run this cell before the other turtle programs.</span>
 <span class="c1"># These commands are not needed in IDLE.</span>
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ColabTurtlePlus
+<span class="o">!</span>pip install ColabTurtlePlus
 <span class="kn">from</span> <span class="nn">ColabTurtlePlus.Turtle</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 
@@ -16124,7 +16085,7 @@ Well done Seb! You guessed my number in 4 guesses!
   <span class="k">if</span> <span class="n">length</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
     <span class="n">penup</span><span class="p">()</span>
     <span class="n">pensize</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">pencolor</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">)</span>
+    <span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
     <span class="n">setpos</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">pendown</span><span class="p">()</span>
     <span class="n">fd</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
@@ -16148,9 +16109,7 @@ Well done Seb! You guessed my number in 4 guesses!
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16223,9 +16182,7 @@ Well done Seb! You guessed my number in 4 guesses!
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16285,9 +16242,9 @@ Well done Seb! You guessed my number in 4 guesses!
 <span class="k">def</span> <span class="nf">FractalTreeColor</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
   <span class="n">pensize</span><span class="p">(</span><span class="n">length</span> <span class="o">/</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># Thickness of lines.</span>
   <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-    <span class="n">pencolor</span><span class="p">(</span><span class="s2">"green"</span><span class="p">)</span>
+    <span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
   <span class="k">else</span><span class="p">:</span>
-    <span class="n">pencolor</span><span class="p">(</span><span class="s2">"brown"</span><span class="p">)</span>
+    <span class="n">pencolor</span><span class="p">(</span><span class="s2">&quot;brown&quot;</span><span class="p">)</span>
   <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">fd</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>  <span class="c1"># Forward</span>
     <span class="n">rt</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>      <span class="c1"># Right turn 50 degrees</span>
@@ -16314,9 +16271,7 @@ Well done Seb! You guessed my number in 4 guesses!
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16362,7 +16317,7 @@ Well done Seb! You guessed my number in 4 guesses!
   <span class="k">if</span> <span class="n">level</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
     <span class="k">return</span>
   <span class="n">begin_fill</span><span class="p">()</span> <span class="c1"># Fill shape</span>
-  <span class="n">color</span><span class="p">(</span><span class="s2">"red"</span><span class="p">)</span>
+  <span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">SierpinskiSquare</span><span class="p">(</span><span class="n">length</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">fd</span><span class="p">(</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
@@ -16384,9 +16339,7 @@ Well done Seb! You guessed my number in 4 guesses!
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16435,7 +16388,7 @@ Well done Seb! You guessed my number in 4 guesses!
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="End-Solutions-for-Chapter-3">End Solutions for Chapter 3<a class="anchor-link" href="#End-Solutions-for-Chapter-3">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-3">End Solutions for Chapter 3<a class="anchor-link" href="#End-Solutions-for-Chapter-3">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -16495,9 +16448,9 @@ Well done Seb! You guessed my number in 4 guesses!
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span> <span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">100</span><span class="p">)</span>     <span class="c1"># Define the domain values.</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span><span class="mi">18</span>              <span class="c1"># A vector of y-values.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"$y=f(x)=x^2-3x-18$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$y=f(x)=x^2-3x-18$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -16512,9 +16465,7 @@ Well done Seb! You guessed my number in 4 guesses!
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16551,9 +16502,9 @@ class="
 <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                          <span class="c1"># A vector of y-values.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="p">,</span> <span class="o">-</span><span class="mi">2</span> <span class="p">,</span> <span class="mi">6</span><span class="p">])</span>    <span class="c1"># Set the range of x and y-values.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"$y=g(x)=2+3\sin(x)$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$y=g(x)=2+3\sin(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -16568,9 +16519,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16606,9 +16555,9 @@ class="
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Define the domain values.</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># A vector of y-values.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"$y=h(x)=1+e^{-x}$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$y=h(x)=1+e^{-x}$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -16623,9 +16572,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16666,12 +16613,12 @@ class="
 <span class="c1"># Z is a function of two variables.</span>
 <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s2">"3d"</span><span class="p">)</span> 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"z"</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span> <span class="o">=</span> <span class="s2">&quot;3d&quot;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Z</span><span class="p">))</span> 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"3D Surface, $z=xe^{-x^2-y^2}$"</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;3D Surface, $z=xe^{-x^2-y^2}$&quot;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span> <span class="p">,</span> <span class="n">Y</span> <span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -16687,9 +16634,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16717,7 +16662,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="End-Solutions-Chapter-4">End Solutions Chapter 4<a class="anchor-link" href="#End-Solutions-Chapter-4">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-Chapter-4">End Solutions Chapter 4<a class="anchor-link" href="#End-Solutions-Chapter-4">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -16774,7 +16719,7 @@ class="
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import all of the functions from the SymPy library.</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x y"</span><span class="p">)</span> <span class="c1"># Declare symbolic objects.</span>
+<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">)</span> <span class="c1"># Declare symbolic objects.</span>
 </pre></div>
 
      </div>
@@ -16805,9 +16750,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 
@@ -16847,9 +16790,7 @@ $\displaystyle \left(x - y\right) \left(x^{2} + x y + y^{2}\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
 
@@ -16889,9 +16830,7 @@ $\displaystyle \left(x - y\right) \left(x^{2} + x y + y^{2}\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 
@@ -16931,9 +16870,7 @@ $\displaystyle - \frac{2}{7 \left(x + 2\right)} - \frac{1}{4 \left(x - 1\right)}
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 
@@ -16973,9 +16910,7 @@ $\displaystyle x^{3} + x^{2} y - 3 x^{2} - x y + 4 x - y^{2} + 7 y - 12$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 
@@ -17032,9 +16967,7 @@ $\displaystyle x^{3} + x^{2} y - 3 x^{2} - x y + 4 x - y^{2} + 7 y - 12$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 
@@ -17074,9 +17007,7 @@ $\displaystyle \frac{1}{2}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 
@@ -17116,9 +17047,7 @@ $\displaystyle 2 x - 6$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
 
@@ -17158,9 +17087,7 @@ $\displaystyle - 3 \sin{\left(3 x \right)}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
 
@@ -17200,9 +17127,7 @@ $\displaystyle 2 e^{x}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
 
@@ -17245,7 +17170,7 @@ $\displaystyle x \cos{\left(x \right)} + \sin{\left(x \right)}$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. (a) Indefinite integration.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span> <span class="p">,</span> <span class="s2">"+ c"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span> <span class="p">,</span> <span class="s2">&quot;+ c&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17259,9 +17184,7 @@ $\displaystyle x \cos{\left(x \right)} + \sin{\left(x \right)}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17299,9 +17222,7 @@ $\displaystyle x \cos{\left(x \right)} + \sin{\left(x \right)}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
 
@@ -17327,7 +17248,7 @@ $\displaystyle \frac{1365}{2}$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. (c) Indefinite integration.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="s2">"+ c"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">integrate</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="s2">&quot;+ c&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17341,9 +17262,7 @@ $\displaystyle \frac{1365}{2}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17381,9 +17300,7 @@ $\displaystyle \frac{1365}{2}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
 
@@ -17423,9 +17340,7 @@ $\displaystyle - \cos{\left(1 \right)} + \sin{\left(1 \right)}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
 
@@ -17491,9 +17406,7 @@ $\displaystyle \infty$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
 
@@ -17533,9 +17446,7 @@ $\displaystyle \left[\begin{matrix}2 &amp; 2\\-2 &amp; 0\end{matrix}\right]$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
 
@@ -17575,9 +17486,7 @@ $\displaystyle \left[\begin{matrix}7 &amp; -9\\13 &amp; 28\end{matrix}\right]$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
 
@@ -17617,9 +17526,7 @@ $\displaystyle \left[\begin{matrix}5 &amp; 4\\-1 &amp; 3\end{matrix}\right]$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[53]:</div>
 
@@ -17659,9 +17566,7 @@ $\displaystyle \left[\begin{matrix}0 &amp; -1\\1 &amp; 1\end{matrix}\right]$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
 
@@ -17702,7 +17607,7 @@ $\displaystyle 19$
 <p><a href="https://github.com">https://github.com</a>.</p>
 <p>Upload this Google Colab notebook to GitHub.</p>
 <p>DID YOU KNOW? You can use GitHub to host your own web pages.</p>
-<h2 id="End-Solutions-for-Chapter-5">End Solutions for Chapter 5<a class="anchor-link" href="#End-Solutions-for-Chapter-5">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-5">End Solutions for Chapter 5<a class="anchor-link" href="#End-Solutions-for-Chapter-5">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -17744,7 +17649,7 @@ $\displaystyle 19$
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. (a) Substitution.</span>
 <span class="n">u</span> <span class="p">,</span> <span class="n">t</span> <span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mf">9.8</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">u</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"s = "</span> <span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s = &quot;</span> <span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17758,9 +17663,7 @@ $\displaystyle 19$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17785,7 +17688,7 @@ $\displaystyle 19$
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. (b) Expansion.</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span> <span class="p">,</span> <span class="n">expand</span>
-<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x  y"</span><span class="p">)</span>
+<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x  y&quot;</span><span class="p">)</span>
 <span class="n">expand</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">4</span><span class="p">))</span> 
 </pre></div>
 
@@ -17800,9 +17703,7 @@ $\displaystyle 19$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
 
@@ -17842,9 +17743,7 @@ $\displaystyle 2 x^{2} - 8 x$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[57]:</div>
 
@@ -17885,9 +17784,7 @@ $\displaystyle x^{2} + 3 x - y^{2} + y + 2$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
 
@@ -17929,7 +17826,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. (a) Solve for t.</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">solve</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"t"</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
 <span class="n">solve</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">t</span> <span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 </pre></div>
 
@@ -17944,9 +17841,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 
@@ -17972,7 +17867,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. (b) Solve for a.</span>
-<span class="n">a</span> <span class="p">,</span> <span class="n">s</span> <span class="p">,</span> <span class="n">u</span> <span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"a s u t"</span><span class="p">)</span>
+<span class="n">a</span> <span class="p">,</span> <span class="n">s</span> <span class="p">,</span> <span class="n">u</span> <span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;a s u t&quot;</span><span class="p">)</span>
 <span class="n">solve</span><span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">u</span> <span class="o">*</span> <span class="n">t</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span> <span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
 
@@ -17987,9 +17882,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
 
@@ -18015,7 +17908,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2. (c) Solve for x.</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">solve</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">3</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 
@@ -18030,9 +17923,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[61]:</div>
 
@@ -18073,9 +17964,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18116,7 +18005,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. (a) Define a function.</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"f(4) = "</span> <span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f(4) = &quot;</span> <span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -18130,9 +18019,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18163,14 +18050,14 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
     <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span> <span class="p">,</span> <span class="mi">10</span> <span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"f(x)"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;f(x)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span> <span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"y=f(x)=1, when "</span> <span class="p">,</span> <span class="s2">"x ="</span> <span class="p">,</span> <span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y=f(x)=1, when &quot;</span> <span class="p">,</span> <span class="s2">&quot;x =&quot;</span> <span class="p">,</span> <span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -18184,9 +18071,7 @@ $\displaystyle \left(x - 4\right) \left(x - 3\right)$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18202,9 +18087,7 @@ class="
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18232,7 +18115,7 @@ class="
     <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">4</span>
 <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"g(h(x))-h(g(x)) = "</span> <span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="n">h</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;g(h(x))-h(g(x)) = &quot;</span> <span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">h</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="n">h</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 </pre></div>
 
      </div>
@@ -18246,9 +18129,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18272,10 +18153,10 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. (d) Functions of functions (composition of functions).</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"mu"</span><span class="p">)</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;mu&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">f_mu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"f_mu(f_mu(x)) = "</span> <span class="p">,</span> <span class="n">f_mu</span><span class="p">(</span><span class="n">f_mu</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f_mu(f_mu(x)) = &quot;</span> <span class="p">,</span> <span class="n">f_mu</span><span class="p">(</span><span class="n">f_mu</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 </pre></div>
 
      </div>
@@ -18289,9 +18170,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18331,8 +18210,8 @@ class="
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4. (a) Differentiate</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x y"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"dy/dx = "</span> <span class="p">,</span> <span class="n">diff</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dy/dx = &quot;</span> <span class="p">,</span> <span class="n">diff</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -18346,9 +18225,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18372,13 +18249,13 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4. (b) Find the gradient at x=0. Use the subs function from sympy.</span>
-<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x y c"</span><span class="p">)</span>
+<span class="n">x</span> <span class="p">,</span> <span class="n">y</span> <span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y c&quot;</span><span class="p">)</span>
 <span class="n">xval</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="n">dydx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">y</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="c1"># The gradient (m) of the tangent.</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">dydx</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">xval</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"m = "</span> <span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;m = &quot;</span> <span class="p">,</span> <span class="n">m</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18392,9 +18269,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18421,7 +18296,7 @@ class="
 <span class="c1"># Determine where the graphs meet.</span>
 <span class="n">soln</span> <span class="o">=</span> <span class="n">solve</span><span class="p">([</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="n">x</span> <span class="p">,</span> <span class="n">soln</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">soln</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Area = "</span> <span class="p">,</span> <span class="n">A</span> <span class="p">,</span> <span class="s2">"units squared"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Area = &quot;</span> <span class="p">,</span> <span class="n">A</span> <span class="p">,</span> <span class="s2">&quot;units squared&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18435,9 +18310,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18476,7 +18349,7 @@ class="
         <span class="n">y1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> 
         <span class="n">y2</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> 
         <span class="n">where</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">),</span>  <span class="c1"># Limits of integration.</span>
-        <span class="n">color</span> <span class="o">=</span> <span class="s2">"b"</span><span class="p">,</span>                   <span class="c1"># Color of shading.</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>                   <span class="c1"># Color of shading.</span>
         <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>                   <span class="c1"># Transparency.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -18492,9 +18365,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18526,7 +18397,7 @@ class="
 <p><a href="https://drstephenlynch.github.io/webpages/Python_for_A_Level_Mathematics_and_Beyond.html">https://drstephenlynch.github.io/webpages/Python_for_A_Level_Mathematics_and_Beyond.html</a></p>
 <p>The notebook covers all of the material in the UK A-Level Mathematics syllabus.</p>
 <p>Students get a deeper understanding by checking handwritten results, plotting curves and producing animations.</p>
-<h2 id="End-Solutions-for-Chapter-6">End Solutions for Chapter 6<a class="anchor-link" href="#End-Solutions-for-Chapter-6">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-6">End Solutions for Chapter 6<a class="anchor-link" href="#End-Solutions-for-Chapter-6">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -18580,7 +18451,7 @@ class="
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. The Caeser Cipher: Decryption.</span>
 <span class="n">shift</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">text</span> <span class="p">,</span> <span class="n">shift</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)):</span>
         <span class="n">char</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">isupper</span><span class="p">()):</span> <span class="c1"># Upper-case characters.</span>
@@ -18590,10 +18461,10 @@ class="
     <span class="k">return</span> <span class="n">result</span>
 
 <span class="c1"># Insert text.</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">"FdhvhuqFlskhuqFrgh"</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Text : "</span> <span class="o">+</span> <span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Shift : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">shift</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Cipher: "</span> <span class="o">+</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">shift</span><span class="p">))</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;FdhvhuqFlskhuqFrgh&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Text : &quot;</span> <span class="o">+</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shift : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">shift</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cipher: &quot;</span> <span class="o">+</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">shift</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -18607,9 +18478,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18633,9 +18502,9 @@ Cipher: CaesernCiphernCode
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$\bf{ 2.}$ Playfair Cipher: Encrypt the message "I LOVE PYTHON" by hand.</p>
-<p><a href="https://en.wikipedia.org/wiki/Playfair_cipher">https://en.wikipedia.org/wiki/Playfair_cipher</a></p>
-<p>Bruce Wayne's array would look like:</p>
+<ol start="2">
+<li>Playfair Cipher.</li>
+</ol>
 <p>Matrix =$\begin{pmatrix}
 B &amp; R &amp; U &amp; C &amp; E \\
 W &amp; A &amp; Y &amp; N &amp; D \\
@@ -18657,6 +18526,7 @@ S &amp; T &amp; V &amp; X &amp; Z
 <figure>
 <img src = "PlayfairCipher.png" , width = "900">
 </figure>
+
 </div>
 </div>
 </div>
@@ -18667,8 +18537,8 @@ S &amp; T &amp; V &amp; X &amp; Z
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$\bf{ 3.}$ The Vigenère cipher, first described by Giovan Battista Bellaso in 1553, is a method of encrypting alphabetic text where each letter of the plaintext is encoded with a different Caesar cipher, whose increment is determined by the corresponding letter of another text, the key. Write a Python program for the Vigenère cipher: <a href="https://en.wikipedia.org/wiki/Vigenère_cipher">https://en.wikipedia.org/wiki/Vigenère_cipher</a>.</p>
-<p>The program to decrypt the Vigenere cipher is given in the solutions for Chapter 12.</p>
+<p>$\bf{ 3.}$ The Vigenère cipher, first described by Giovan Battista Bellaso in 1553, is a method of encrypting alphabetic text where each letter of the plaintext is encoded with a different Caesar cipher, whose increment is determined by the corresponding letter of another text, the key. Write a Python program for the Vigenère cipher:</p>
+<p><a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher</a>.</p>
 
 </div>
 </div>
@@ -18684,22 +18554,22 @@ S &amp; T &amp; V &amp; X &amp; Z
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3. Vigenere Cipher Encryption.</span>
 <span class="k">def</span> <span class="nf">vigenere</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
     <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="c1"># message = message.replace(" ","")</span>
+    <span class="c1"># message = message.replace(&quot; &quot;,&quot;&quot;)</span>
     <span class="n">key_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-    <span class="n">cipher_text</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">cipher_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)):</span>
         <span class="n">letter</span> <span class="o">=</span> <span class="n">message</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">key_length</span><span class="p">]</span> 
         <span class="n">cipher_text</span> <span class="o">=</span> <span class="n">cipher_text</span> <span class="o">+</span> <span class="nb">chr</span> <span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span> <span class="o">-</span> <span class="mi">97</span> <span class="o">+</span> <span class="n">k</span> <span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="o">+</span> <span class="mi">97</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cipher_text</span>
 
-<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">"__main__"</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">"Encryption"</span><span class="p">)</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="s2">"rosebud"</span>
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Encryption&quot;</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;rosebud&quot;</span>
     <span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="nb">ord</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span><span class="o">-</span><span class="mi">97</span> <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">key</span><span class="p">]</span>
     
-    <span class="n">cipher_text</span> <span class="o">=</span> <span class="n">vigenere</span><span class="p">(</span><span class="n">key</span> <span class="p">,</span> <span class="s2">"Vigenere Cipher"</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">"cipher text: "</span><span class="p">,</span><span class="n">cipher_text</span><span class="p">)</span>
+    <span class="n">cipher_text</span> <span class="o">=</span> <span class="n">vigenere</span><span class="p">(</span><span class="n">key</span> <span class="p">,</span> <span class="s2">&quot;Vigenere Cipher&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;cipher text: &quot;</span><span class="p">,</span><span class="n">cipher_text</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18713,9 +18583,7 @@ S &amp; T &amp; V &amp; X &amp; Z
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18772,9 +18640,7 @@ cipher text:  mwyioyuvbumqbhi
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[73]:</div>
 
@@ -18807,7 +18673,7 @@ cipher text:  mwyioyuvbumqbhi
  
 <span class="c1"># Step 2, compute n.</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">q</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"n ="</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n =&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
  
 <span class="c1"># Step 3, compute phi(n).</span>
 <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -18817,7 +18683,7 @@ cipher text:  mwyioyuvbumqbhi
 
 <span class="c1">#for e in range(2 , phi):</span>
 <span class="c1">#    if (gcd(e, phi) == 1):</span>
-<span class="c1">#        print("e =", e)</span>
+<span class="c1">#        print(&quot;e =&quot;, e)</span>
 <span class="n">e</span> <span class="o">=</span> <span class="mi">7</span>
 
 <span class="c1"># Step 5: </span>
@@ -18828,11 +18694,11 @@ cipher text:  mwyioyuvbumqbhi
     <span class="k">else</span><span class="p">:</span>
         <span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">phi</span> <span class="o">%</span> <span class="n">e</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">gcd</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">phi</span> <span class="o">//</span> <span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span>
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">gcd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">extended_gcd</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"phi = "</span> <span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'The gcd is'</span><span class="p">,</span> <span class="n">gcd</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"x = "</span> <span class="p">,</span> <span class="n">x</span> <span class="p">,</span> <span class="s2">", y = "</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;phi = &quot;</span> <span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The gcd is&#39;</span><span class="p">,</span> <span class="n">gcd</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span> <span class="p">,</span> <span class="n">x</span> <span class="p">,</span> <span class="s2">&quot;, y = &quot;</span> <span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18846,9 +18712,7 @@ cipher text:  mwyioyuvbumqbhi
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18892,15 +18756,15 @@ x =  -113 , y =  2
 
 <span class="n">d</span> <span class="p">,</span> <span class="n">e</span> <span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">113</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">,</span> <span class="mi">437</span>
 <span class="n">msg</span> <span class="o">=</span> <span class="mi">11</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original message: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original message: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
  
 <span class="c1"># Encryption</span>
 <span class="n">E</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">msg</span> <span class="p">,</span> <span class="n">e</span> <span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Encrypted message: </span><span class="si">{</span><span class="n">E</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Encrypted message: </span><span class="si">{</span><span class="n">E</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
  
 <span class="c1"># Decryption</span>
 <span class="n">D</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">E</span> <span class="p">,</span> <span class="n">d</span> <span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Decrypted message: </span><span class="si">{</span><span class="n">D</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Decrypted message: </span><span class="si">{</span><span class="n">D</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
 </pre></div>
 
      </div>
@@ -18914,9 +18778,7 @@ x =  -113 , y =  2
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -18940,7 +18802,7 @@ Decrypted message: 11
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="End-Solutions-for-Chapter-7">End Solutions for Chapter 7<a class="anchor-link" href="#End-Solutions-for-Chapter-7">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-7">End Solutions for Chapter 7<a class="anchor-link" href="#End-Solutions-for-Chapter-7">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -18982,7 +18844,7 @@ $$\sigma(v)=\frac{1}{1+e^{-v}},$$$$\phi(v)=\tanh(v)=\frac{e^v-e^{-v}}{e^v+e^{-v}
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1.(a) </span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">sigmoid</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
 <span class="n">dsigmoid</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmoid</span> <span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="n">simplify</span><span class="p">(</span><span class="n">dsigmoid</span> <span class="o">-</span> <span class="n">sigmoid</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigmoid</span><span class="p">))</span>
@@ -18999,9 +18861,7 @@ $$\sigma(v)=\frac{1}{1+e^{-v}},$$$$\phi(v)=\tanh(v)=\frac{e^v-e^{-v}}{e^v+e^{-v}
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -19044,9 +18904,7 @@ $\displaystyle 0$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -19079,16 +18937,16 @@ $\displaystyle 0$
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$\sigma(v)=\frac</span><span class="si">{1}</span><span class="s2">{1+e^{-v}}$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$\frac{d \sigma}</span><span class="si">{dv}</span><span class="s2"> = \sigma(v) (1 - \sigma(v))$"</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"v"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\sigma(v)=\frac</span><span class="si">{1}</span><span class="s2">{1+e^{-v}}$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\frac{d \sigma}</span><span class="si">{dv}</span><span class="s2"> = \sigma(v) (1 - \sigma(v))$&quot;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$\phi(v)=\tanh(v)$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$\frac{d \phi}</span><span class="si">{dv}</span><span class="s2">=1 - \tanh^2(v)$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"v"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\phi(v)=\tanh(v)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\frac{d \phi}</span><span class="si">{dv}</span><span class="s2">=1 - \tanh^2(v)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -19104,9 +18962,7 @@ $\displaystyle 0$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -19160,10 +19016,10 @@ $$w_{11}=60, w_{12}=80, w_{21} =60, w_{22} =80, w_{13} =−60, w_{23}=60,$$$$b_1
   <span class="n">h2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">w12</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">w22</span> <span class="o">+</span> <span class="n">b2</span> 
   <span class="n">o1</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span> <span class="o">*</span> <span class="n">w13</span> <span class="o">+</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span> <span class="o">*</span> <span class="n">w23</span> <span class="o">+</span> <span class="n">b3</span>
   <span class="k">return</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR(0,0)= "</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR(0,1)= "</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR(1,0)= "</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">1</span> <span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"XOR(1,1)= "</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">1</span> <span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR(0,0)= &quot;</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR(0,1)= &quot;</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR(1,0)= &quot;</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">1</span> <span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;XOR(1,1)= &quot;</span> <span class="p">,</span> <span class="n">XOR</span><span class="p">(</span><span class="mi">1</span> <span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -19177,9 +19033,7 @@ $$w_{11}=60, w_{12}=80, w_{21} =60, w_{22} =80, w_{13} =−60, w_{23}=60,$$$$b_1
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -19229,26 +19083,26 @@ XOR(1,1)=  9.357622968891759e-14
 <span class="n">h2</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">w12</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">w22</span> <span class="o">+</span> <span class="n">b2</span>
 <span class="n">o1</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span> <span class="o">*</span> <span class="n">w13</span> <span class="o">+</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span> <span class="o">*</span> <span class="n">w23</span> <span class="o">+</span> <span class="n">b3</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"y = "</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y = &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="c1"># Backpropagate.</span>
 <span class="n">dErrdw13</span><span class="o">=</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">))</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span>
 <span class="n">w13</span> <span class="o">=</span> <span class="n">w13</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">dErrdw13</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"w13_new = "</span><span class="p">,</span> <span class="n">w13</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w13_new = &quot;</span><span class="p">,</span> <span class="n">w13</span><span class="p">)</span>
 <span class="n">dErrdw23</span><span class="o">=</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">))</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span>
 <span class="n">w23</span> <span class="o">=</span> <span class="n">w23</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">dErrdw23</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"w23_new = "</span><span class="p">,</span> <span class="n">w23</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w23_new = &quot;</span><span class="p">,</span> <span class="n">w23</span><span class="p">)</span>
 <span class="n">dErrdw11</span><span class="o">=</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">))</span><span class="o">*</span><span class="n">w13</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">))</span><span class="o">*</span><span class="n">x1</span>
 <span class="n">w11</span> <span class="o">=</span> <span class="n">w11</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">dErrdw11</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"w11_new = "</span><span class="p">,</span> <span class="n">w11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w11_new = &quot;</span><span class="p">,</span> <span class="n">w11</span><span class="p">)</span>
 <span class="n">dErrdw12</span><span class="o">=</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">))</span><span class="o">*</span><span class="n">w23</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h2</span><span class="p">))</span><span class="o">*</span><span class="n">x1</span>
 <span class="n">w12</span> <span class="o">=</span> <span class="n">w12</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">dErrdw12</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"w12_new = "</span><span class="p">,</span> <span class="n">w12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w12_new = &quot;</span><span class="p">,</span> <span class="n">w12</span><span class="p">)</span>
 <span class="n">dErrdw21</span><span class="o">=</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">))</span><span class="o">*</span><span class="n">w13</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">))</span><span class="o">*</span><span class="n">x2</span>
 <span class="n">w21</span> <span class="o">=</span> <span class="n">w21</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">dErrdw21</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"w21_new = "</span><span class="p">,</span> <span class="n">w21</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w21_new = &quot;</span><span class="p">,</span> <span class="n">w21</span><span class="p">)</span>
 <span class="n">dErrdw22</span><span class="o">=</span><span class="p">(</span><span class="n">yt</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">o1</span><span class="p">))</span><span class="o">*</span><span class="n">w23</span><span class="o">*</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">h1</span><span class="p">))</span><span class="o">*</span><span class="n">x2</span>
 <span class="n">w22</span> <span class="o">=</span> <span class="n">w22</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">dErrdw22</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"w22_new = "</span><span class="p">,</span> <span class="n">w22</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w22_new = &quot;</span><span class="p">,</span> <span class="n">w22</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -19262,9 +19116,7 @@ XOR(1,1)=  9.357622968891759e-14
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -19292,7 +19144,7 @@ w22_new =  0.3001394210050359
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>${\bf 4.}$ Download the notebook: "Boston-Housing-ANN-Calculator.ipynb" from GitHib. Three attributes are used in the program (average number of rooms, index of accessible radial highways, percentage lower status of population). The target data is median value of owner-occupied homes. List 10 attributes which would be important to you when purchasing your house.</p>
+<p>${\bf 4.}$ Download the notebook: &quot;Boston-Housing-ANN-Calculator.ipynb&quot; from GitHib. Three attributes are used in the program (average number of rooms, index of accessible radial highways, percentage lower status of population). The target data is median value of owner-occupied homes. List 10 attributes which would be important to you when purchasing your house.</p>
 
 </div>
 </div>
@@ -19313,7 +19165,7 @@ w22_new =  0.3001394210050359
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">'housing.txt'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;housing.txt&#39;</span><span class="p">)</span>
 <span class="n">rows</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
 <span class="n">columns</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Using 4 columns from the data in this case.</span>
 
@@ -19358,12 +19210,12 @@ w22_new =  0.3001394210050359
 <span class="n">ws3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ws3</span><span class="p">)</span>
 <span class="n">ws4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ws4</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">'k'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$b$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">'g'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$w_1$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws3</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws3</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">'b'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$w_2$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws4</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws4</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"$w_3$"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Number of iterations'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Weights'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$b$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$w_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws3</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws3</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$w_2$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws4</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ws4</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$w_3$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of iterations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Weights&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -19380,9 +19232,7 @@ w22_new =  0.3001394210050359
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -19412,7 +19262,7 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Once the weights have converged, the ANN can be used to value other homes. REMINDER: The data is from the 1970s.</p>
 <p>Change the learning rate and number of epochs to see how the convergence is affected.</p>
-<h2 id="End-Solutions-for-Chapter-8">End Solutions for Chapter 8<a class="anchor-link" href="#End-Solutions-for-Chapter-8">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-8">End Solutions for Chapter 8<a class="anchor-link" href="#End-Solutions-for-Chapter-8">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
@@ -19452,7 +19302,7 @@ class="
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>    <span class="c1"># Import pandas for data analysis</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># Import seaborn for visualisations</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"Data-1-OCR.xlsx"</span> <span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">"Data"</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Data-1-OCR.xlsx&quot;</span> <span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">&quot;Data&quot;</span><span class="p">)</span>
 <span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -19467,9 +19317,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
@@ -19654,8 +19502,8 @@ class="
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a scatter plot of life expectancy against GDP, where the size </span>
 <span class="c1"># is determined by physicians per 1000.</span>
 <span class="c1"># Sizes=(30 , 150) sets the range of sizes to be used.</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"GDP per capita (US$)"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Life expectancy at birth 2010"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">"physician density </span><span class="se">\</span>
-<span class="s2">(physicians/1000 population)"</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;GDP per capita (US$)&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Life expectancy at birth 2010&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;physician density </span><span class="se">\</span>
+<span class="s2">(physicians/1000 population)&quot;</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -19669,9 +19517,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -19683,9 +19529,7 @@ class="
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -19725,7 +19569,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>${\bf 2.}$ Load the data file, Data-2-Edexcel.csv from GitHub. This LDS consists of weather data samples provided by the UK Met Office for five UK weather stations. Load the data and set up a data frame. Explore the data. Plot box and whisker plots for Daily Mean Temperature for each station and compare the results in 2015 to 1987. Communicate the results.</p>
+<p>${\bf 2.}$ Load the data file, Data-2-Edexcel.xlsx from GitHub. This LDS consists of weather data samples provided by the UK Met Office for five UK weather stations. Load the data and set up a data frame. Explore the data. Plot box and whisker plots for Daily Mean Temperature for each station and compare the results in 2015 to 1987. Communicate the results.</p>
 
 </div>
 </div>
@@ -19741,7 +19585,7 @@ class="
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>    <span class="c1"># Import pandas for data analysis</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># Import seaborn for visualisations</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"Data-2-Edexcel.csv"</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Data-2-Edexcel.csv&quot;</span><span class="p">)</span>
 <span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -19756,9 +19600,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -19924,9 +19766,9 @@ class="
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pre-process and clean the data.</span>
 <span class="c1"># Create a new column called Rainfall which is a copy of the Daily Total Rainfall column.</span>
-<span class="n">df2</span><span class="p">[</span><span class="s2">"Rainfall"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">"Daily Total Rainfall"</span><span class="p">]</span>
-<span class="c1"># Replace any instances of 'tr' with 0.025 and change the type to float.</span>
-<span class="n">df2</span><span class="p">[</span><span class="s2">"Rainfall"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">"Rainfall"</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s2">"tr"</span><span class="p">:</span> <span class="mf">0.025</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float"</span><span class="p">)</span>
+<span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Rainfall&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Daily Total Rainfall&quot;</span><span class="p">]</span>
+<span class="c1"># Replace any instances of &#39;tr&#39; with 0.025 and change the type to float.</span>
+<span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Rainfall&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Rainfall&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s2">&quot;tr&quot;</span><span class="p">:</span> <span class="mf">0.025</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
 <span class="n">df2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="mi">12</span> <span class="p">:</span> <span class="mi">19</span><span class="p">]</span>
 </pre></div>
 
@@ -19941,9 +19783,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -20042,11 +19882,12 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change the data type of a feature.</span>
-<span class="n">df2</span><span class="p">[</span><span class="s2">"Year"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">"Year"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"category"</span><span class="p">)</span>
+<span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 <span class="n">df2</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span class="c1"># Create a box plot with a category on the y-axis, colour-coded by </span>
 <span class="c1"># another category.</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"box"</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"Daily Mean Temperature"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">"Station"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">"Year"</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Daily Mean Temperature&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Station&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> \
+            <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -20061,9 +19902,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -20097,9 +19936,7 @@ memory usage: 246.4+ KB
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -20165,7 +20002,7 @@ class="
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
-<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"Data-3-AQA.xlsx"</span> <span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">"Car data"</span><span class="p">)</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Data-3-AQA.xlsx&quot;</span> <span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">&quot;Car data&quot;</span><span class="p">)</span>
 <span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -20180,9 +20017,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -20336,16 +20171,16 @@ class="
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Keeping only the rows where Engine Size is greater than zero. </span>
 <span class="c1"># Mass is greater than zero and CO2 is greater than zero.</span>
-<span class="n">df3</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[(</span><span class="n">df3</span><span class="p">[</span><span class="s2">"EngineSize"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> 
-                            <span class="o">&amp;</span> <span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s2">"Mass"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-                            <span class="o">&amp;</span> <span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s2">"CO2"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df3</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[(</span><span class="n">df3</span><span class="p">[</span><span class="s2">&quot;EngineSize&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> 
+                            <span class="o">&amp;</span> <span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s2">&quot;Mass&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+                            <span class="o">&amp;</span> <span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s2">&quot;CO2&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="c1"># Create a PropulsionType feature based on the values of the PropulsionTypeID feature.</span>
-<span class="n">df3</span><span class="p">[</span><span class="s2">"PropulsionType"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[</span><span class="s2">"PropulsionTypeId"</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
-                                                <span class="mi">1</span><span class="p">:</span> <span class="s2">"Petrol"</span><span class="p">,</span> 
-                                                <span class="mi">2</span><span class="p">:</span> <span class="s2">"Diesel"</span><span class="p">,</span>
-                                                <span class="mi">3</span><span class="p">:</span> <span class="s2">"Electric"</span><span class="p">,</span> 
-                                                <span class="mi">7</span><span class="p">:</span> <span class="s2">"Gas/Petrol"</span><span class="p">,</span> 
-                                                <span class="mi">8</span><span class="p">:</span> <span class="s2">"Electric/Petrol"</span><span class="p">})</span>
+<span class="n">df3</span><span class="p">[</span><span class="s2">&quot;PropulsionType&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[</span><span class="s2">&quot;PropulsionTypeId&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+                                                <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Petrol&quot;</span><span class="p">,</span> 
+                                                <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Diesel&quot;</span><span class="p">,</span>
+                                                <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Electric&quot;</span><span class="p">,</span> 
+                                                <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;Gas/Petrol&quot;</span><span class="p">,</span> 
+                                                <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;Electric/Petrol&quot;</span><span class="p">})</span>
 <span class="n">df3</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">6</span> <span class="p">,</span> <span class="mi">15</span><span class="p">]]</span> <span class="c1"># Choose certain columns.</span>
 </pre></div>
 
@@ -20360,9 +20195,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
@@ -20455,7 +20288,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scatter plot of CO2 against Mass colour-coded by PropulsionType.</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"Mass"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"CO2"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">"PropulsionType"</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;CO2&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;PropulsionType&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -20469,9 +20302,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
@@ -20483,9 +20314,7 @@ class="
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -20515,7 +20344,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Predicting CO2 emissions for petrol, cars.</span>
-<span class="n">petrol_data</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[</span><span class="n">df3</span><span class="p">[</span><span class="s2">"PropulsionType"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Petrol"</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">petrol_data</span> <span class="o">=</span> <span class="n">df3</span><span class="p">[</span><span class="n">df3</span><span class="p">[</span><span class="s2">&quot;PropulsionType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Petrol&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">petrol_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">6</span> <span class="p">,</span> <span class="mi">15</span><span class="p">]]</span> <span class="c1"># Choose certain columns.</span>
 </pre></div>
 
@@ -20530,9 +20359,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
@@ -20625,7 +20452,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scatter plot of CO2 against Mass for the petrol cars.</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">petrol_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"Mass"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"CO2"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">"PropulsionType"</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">petrol_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Mass&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;CO2&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;PropulsionType&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -20639,9 +20466,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
@@ -20653,9 +20478,7 @@ class="
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -20712,7 +20535,7 @@ class="
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>    <span class="c1"># Import pandas for data analysis.</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>  <span class="c1"># Import seaborn for visualisations.</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">df4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"Data-4-OCR.xlsx"</span> <span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">"Method of Travel by LA 2011"</span><span class="p">)</span> <span class="c1"># Local Authority (LA).</span>
+<span class="n">df4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Data-4-OCR.xlsx&quot;</span> <span class="p">,</span> <span class="n">sheet_name</span> <span class="o">=</span> <span class="s2">&quot;Method of Travel by LA 2011&quot;</span><span class="p">)</span> <span class="c1"># Local Authority (LA).</span>
 <span class="n">df4</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>             <span class="c1"># You can scroll across in the notebook.</span>
 </pre></div>
 
@@ -20727,9 +20550,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -20894,7 +20715,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add a Bicycle percent column to df.</span>
-<span class="n">df4</span><span class="p">[</span><span class="s2">"Bicycle percent"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df4</span><span class="p">[</span><span class="s2">"Bicycle"</span><span class="p">]</span> <span class="o">/</span> <span class="n">df4</span><span class="p">[</span><span class="s2">"In employment"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">df4</span><span class="p">[</span><span class="s2">&quot;Bicycle percent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df4</span><span class="p">[</span><span class="s2">&quot;Bicycle&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df4</span><span class="p">[</span><span class="s2">&quot;In employment&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="c1"># Display rows 1 to 5 and columns 12 to 17. Use slicing.</span>
 <span class="n">df4</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="mi">5</span> <span class="p">,</span> <span class="mi">12</span> <span class="p">:</span> <span class="mi">18</span><span class="p">]</span> 
 </pre></div>
@@ -20910,9 +20731,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -21011,7 +20830,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use Seaborn to plot box and whisker plots.</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df4</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"box"</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"Bicycle percent"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Region"</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df4</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;box&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Bicycle percent&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Region&quot;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -21025,9 +20844,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
@@ -21039,9 +20856,7 @@ class="
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -21115,11 +20930,11 @@ class="
         <span class="bp">self</span><span class="o">.</span><span class="n">feeding_time</span> <span class="o">=</span> <span class="n">feeding_time</span>
     <span class="c1"># Methods.</span>
     <span class="k">def</span> <span class="nf">resting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"resting"</span>
+        <span class="k">return</span> <span class="s2">&quot;resting&quot;</span>
     <span class="k">def</span> <span class="nf">moving</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"moving"</span>
+        <span class="k">return</span> <span class="s2">&quot;moving&quot;</span>
     <span class="k">def</span> <span class="nf">sleeping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"sleeping"</span>
+        <span class="k">return</span> <span class="s2">&quot;sleeping&quot;</span>
 </pre></div>
 
      </div>
@@ -21160,22 +20975,22 @@ class="
         <span class="bp">self</span><span class="o">.</span><span class="n">__vet_cost</span> <span class="o">=</span> <span class="n">vet_cost</span>
     <span class="c1"># Methods.</span>
     <span class="k">def</span> <span class="nf">resting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"resting"</span>
+        <span class="k">return</span> <span class="s2">&quot;resting&quot;</span>
     <span class="k">def</span> <span class="nf">moving</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"moving"</span>
+        <span class="k">return</span> <span class="s2">&quot;moving&quot;</span>
     <span class="k">def</span> <span class="nf">sleeping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">"sleeping"</span>
+        <span class="k">return</span> <span class="s2">&quot;sleeping&quot;</span>
 
 <span class="c1"># Create animal objects.</span>
-<span class="n">Baboon</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Bobby"</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">"Male"</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">Cougar</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Connie"</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">"Female"</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">Elephant</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Ernie"</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="s2">"Male"</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">Giraffe</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Gertie"</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">"Female"</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">Hyena</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Harry"</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">"Male"</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">Jaguar</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Jack"</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s2">"Male"</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">Lion</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Leo"</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s2">"Male"</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">Penguin</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Poppy"</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">"Female"</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">Tiger</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">"Tommy"</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">"Male"</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Baboon</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Bobby&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Cougar</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Connie&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Female&quot;</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Elephant</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Ernie&quot;</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">Giraffe</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Gertie&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Female&quot;</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Hyena</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Harry&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Jaguar</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Jack&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Lion</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Leo&quot;</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Penguin</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Poppy&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Female&quot;</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">Tiger</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;Tommy&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span><span class="mi">1700</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">Cougar</span><span class="o">.</span><span class="n">sex</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Elephant</span><span class="o">.</span><span class="n">feeding_time</span><span class="p">)</span>
@@ -21192,9 +21007,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -21235,18 +21048,18 @@ class="
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">legs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">legs</span> <span class="o">=</span> <span class="n">legs</span>
     <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Pet parent class. Walking..."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pet parent class. Walking...&quot;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Pet</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">legs</span> <span class="p">,</span> <span class="n">tail</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">legs</span> <span class="o">=</span> <span class="n">legs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">tail</span>
     <span class="k">def</span> <span class="nf">meeow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Cat child class."</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"A cat meeows but a canary can’t. Meeow..."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cat child class.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A cat meeows but a canary can’t. Meeow...&quot;</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">Canary</span><span class="p">(</span><span class="n">Pet</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">chirp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Canary child class."</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"A canary chirps but a cat can’t. Chirp..."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Canary child class.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A canary chirps but a cat can’t. Chirp...&quot;</span><span class="p">)</span>
 <span class="n">Tom</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="mi">4</span> <span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">Cuckoo</span> <span class="o">=</span> <span class="n">Canary</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
@@ -21269,9 +21082,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -21299,7 +21110,7 @@ A canary chirps but a cat can’t. Chirp...
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>${\bf 4.}$ List the objects, attributes and methods required to create a "Break the Bricks" game. The player moves the paddle left and right to hit the ball. The aqua colored bricks (lowest level) break after one hit, the tomato colored bricks (middle level) break after two hits, and the lawn green colored bricks (top level) break after three hits. You win the game if all bricks are destroyed.</p>
+<p>${\bf 4.}$ List the objects, attributes and methods required to create a &quot;Break the Bricks&quot; game. The player moves the paddle left and right to hit the ball. The aqua colored bricks (lowest level) break after one hit, the tomato colored bricks (middle level) break after two hits, and the lawn green colored bricks (top level) break after three hits. You win the game if all bricks are destroyed.</p>
 <p>You could make the program more realistic by introducing friction and spin on the ball!</p>
 
 </div>
@@ -21313,8 +21124,9 @@ A canary chirps but a cat can’t. Chirp...
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <figure>
-<img src = "Brick_Breaker_Game.png" , width = "900">
+<img src = "Brick_Breaker_game.png" , width = "900">
 </figure>
+
 </div>
 </div>
 </div>
@@ -21385,7 +21197,7 @@ A canary chirps but a cat can’t. Chirp...
         <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">4</span>
         <span class="n">item</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span>
                                   <span class="n">x</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span>
-                                  <span class="n">fill</span><span class="o">=</span><span class="s2">"white"</span><span class="p">)</span>
+                                  <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Ball</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
     <span class="c1"># Methods.</span>
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -21427,7 +21239,7 @@ A canary chirps but a cat can’t. Chirp...
                                        <span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
                                        <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
                                        <span class="n">y</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
-                                       <span class="n">fill</span><span class="o">=</span><span class="s2">"Orange"</span><span class="p">)</span> <span class="c1"># Paddle color.</span>
+                                       <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;Orange&quot;</span><span class="p">)</span> <span class="c1"># Paddle color.</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Paddle</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
     <span class="c1"># Methods.</span>
     <span class="k">def</span> <span class="nf">set_ball</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ball</span><span class="p">):</span>
@@ -21443,7 +21255,7 @@ A canary chirps but a cat can’t. Chirp...
 
 <span class="k">class</span> <span class="nc">Brick</span><span class="p">(</span><span class="n">GameObject</span><span class="p">):</span>
     <span class="c1"># Attributes.</span>
-    <span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">"Aqua"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">"Tomato"</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">"LawnGreen"</span><span class="p">}</span> <span class="c1"># Brick colors.</span>
+    <span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Aqua&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Tomato&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;LawnGreen&quot;</span><span class="p">}</span> <span class="c1"># Brick colors.</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">canvas</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hits</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">75</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">20</span>
@@ -21453,7 +21265,7 @@ A canary chirps but a cat can’t. Chirp...
                                        <span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
                                        <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
                                        <span class="n">y</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
-                                       <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="s1">'brick'</span><span class="p">)</span>
+                                       <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="s1">&#39;brick&#39;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Brick</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
     <span class="c1"># Methods.</span>
     <span class="k">def</span> <span class="nf">hit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -21472,7 +21284,7 @@ A canary chirps but a cat can’t. Chirp...
         <span class="bp">self</span><span class="o">.</span><span class="n">lives</span> <span class="o">=</span> <span class="mi">3</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">610</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">400</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">"LightGray"</span><span class="p">,</span> <span class="c1"># Background color.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;LightGray&quot;</span><span class="p">,</span> <span class="c1"># Background color.</span>
                                 <span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
                                 <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
@@ -21491,17 +21303,17 @@ A canary chirps but a cat can’t. Chirp...
         <span class="bp">self</span><span class="o">.</span><span class="n">hud</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setup_game</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">"&lt;Left&gt;"</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Left&gt;&quot;</span><span class="p">,</span>
                          <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">paddle</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">"&lt;Right&gt;"</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Right&gt;&quot;</span><span class="p">,</span>
                          <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">paddle</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">setup_game</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
            <span class="bp">self</span><span class="o">.</span><span class="n">add_ball</span><span class="p">()</span>
            <span class="bp">self</span><span class="o">.</span><span class="n">update_lives_text</span><span class="p">()</span>
            <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span>
-                                      <span class="s2">"Press Space to Start"</span><span class="p">)</span>
-           <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">"&lt;space&gt;"</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_game</span><span class="p">())</span>
+                                      <span class="s2">&quot;Press Space to Start&quot;</span><span class="p">)</span>
+           <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;space&gt;&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">_</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_game</span><span class="p">())</span>
 
     <span class="k">def</span> <span class="nf">add_ball</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ball</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -21515,35 +21327,35 @@ A canary chirps but a cat can’t. Chirp...
         <span class="n">brick</span> <span class="o">=</span> <span class="n">Brick</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hits</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">brick</span><span class="o">.</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">brick</span>
 
-    <span class="k">def</span> <span class="nf">draw_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">"40"</span><span class="p">):</span>
-        <span class="n">font</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"Forte"</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">draw_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;40&quot;</span><span class="p">):</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Forte&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
                                        <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">update_lives_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="s2">"Lives: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">lives</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Lives: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">lives</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hud</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">hud</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">itemconfig</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hud</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">start_game</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">unbind</span><span class="p">(</span><span class="s2">"&lt;space&gt;"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">unbind</span><span class="p">(</span><span class="s2">&quot;&lt;space&gt;&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">paddle</span><span class="o">.</span><span class="n">ball</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">game_loop</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">game_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">check_collisions</span><span class="p">()</span>
-        <span class="n">num_bricks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">find_withtag</span><span class="p">(</span><span class="s2">"brick"</span><span class="p">))</span>
+        <span class="n">num_bricks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">find_withtag</span><span class="p">(</span><span class="s2">&quot;brick&quot;</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">num_bricks</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
             <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">"WINNER - You broke all of the bricks!"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;WINNER - You broke all of the bricks!&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">get_position</span><span class="p">()[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">:</span> 
             <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">lives</span> <span class="o">-=</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lives</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">"Sorry - You Lose! Game Over!"</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;Sorry - You Lose! Game Over!&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">setup_game</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -21556,9 +21368,9 @@ A canary chirps but a cat can’t. Chirp...
         <span class="n">objects</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">items</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ball</span><span class="o">.</span><span class="n">collide</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
-    <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Break All Bricks!"</span><span class="p">)</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Break All Bricks!&quot;</span><span class="p">)</span>
     <span class="n">game</span> <span class="o">=</span> <span class="n">Game</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
     <span class="n">game</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre></div>
@@ -21575,7 +21387,7 @@ A canary chirps but a cat can’t. Chirp...
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="End-Solutions-for-Chapter-10">End Solutions for Chapter 10<a class="anchor-link" href="#End-Solutions-for-Chapter-10">&#182;</a></h2><p><span>&copy; Stephen Lynch 2023-present.</span></p>
+<h2 id="End-Solutions-for-Chapter-10">End Solutions for Chapter 10<a class="anchor-link" href="#End-Solutions-for-Chapter-10">&#182;</a></h2><p><span>© Stephen Lynch 2023-present.</span></p>
 
 </div>
 </div>
