@@ -9,36 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 1000px;
-      width: 90%;               /* Takes up 90% of screen width */
-      margin: 0 auto;           /* Center horizontally */
-    }
-
-    header, main, footer {
-      padding: 20px;
-      margin-bottom: 10px;
-    }
-
-  
-
-    /* Optional: Adjust padding/font size for smaller screens */
-    @media (max-width: 600px) {
-      header, main, footer {
-        padding: 15px;
-      }
-    }
-  </style>
-
-
 </head>
 <body>
 
@@ -63,151 +33,124 @@
 </header>
 
 
+<!-- Top Table! -->
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 30px;
-  }
-
-  .carousel-container {
-    position: relative;
-    width: 50%;
-    margin: auto;
-  }
-
-  .book-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .book img {
-    width: 400px;
-    height: 600px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .book-links a {
-    display: block;
-    margin: 5px 0;
-    color: blue;
-    text-decoration: none;
-  }
-
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-  }
-
-  .arrow.left {
-    left: -40px;
-  }
-
-  .arrow.right {
-    right: -40px;
-  }
-</style>
-
-<center>
-<h2>Recent Books</h2>
-
-  <div class="carousel-container">
-    <button class="arrow left" onclick="prevBook()">&#8592;</button>
-
-    <div class="book-display" id="bookDisplay">
-      <!-- Book info will be injected here -->
-    </div>
-
-    <button class="arrow right" onclick="nextBook()">&#8594;</button>
-  </div>
-
-  <script>
-    const books = [
-      {
-        title: "Book One",
-        image: "https://media.springernature.com/w316/springer-static/cover-hires/book/978-3-031-89066-6?as=webp",
-        reviewLink: "https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-matlab",
-        publisherLink: "https://link.springer.com/book/9783031890666",
-        webpages: "https://uk.mathworks.com/matlabcentral/profile/authors/63144"
-      },
-      {
-        title: "Book Two",
-        image: "https://drstephenlynch.github.io/webpages/PSCAI_Cover.png",
-        reviewLink: "https://drstephenlynch.github.io/webpages/PSCAI_Book_Review_IMA.pdf",
-        publisherLink: "https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#",
-        webpages: "https://github.com/proflynch/CRC-Press/"
-      },
-      {
-        title: "Book Three",
-        image: "https://drstephenlynch.github.io/webpages/A_Simple_Intro_Python.png",
-        reviewLink: "https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293",
-        publisherLink: "https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293",
-        webpages: "https://github.com/proflynch/A-Simple-Introduction-to-Python"
-      },
-      {
-        title: "Book Four",
-        image: "https://drstephenlynch.github.io/webpages/DSAP_Cover.png",
-        reviewLink: "https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-python",
-        publisherLink: "https://link.springer.com/book/10.1007/978-3-319-78145-7",
-        webpages: "https://github.com/springer-math/dynamical-systems-with-applications-using-python"
-      },
-      {
-        title: "Book Five",
-        image: "https://drstephenlynch.github.io/webpages/Mathematica_2ed.jpeg",
-        reviewLink: "https://ima.org.uk/10871/dynamical-systems-with-applications-using-mathematica-2nd-edition/",
-        publisherLink: "https://link.springer.com/book/10.1007/978-3-319-61485-4",
-        webpages: "http://library.wolfram.com/infocenter/Books/9563/"
-      },
-      {
-        title: "Book Six",
-        image: "https://drstephenlynch.github.io/webpages/MAPLE_COVER_JPEG.jpeg",
-        reviewLink: "https://link.springer.com/book/10.1007/978-0-8176-4605-9#about-book-reviews",
-        publisherLink: "https://link.springer.com/book/10.1007/978-0-8176-4605-9",
-        webpages: "https://helward.mmu.ac.uk/STAFF/S.Lynch/cover1.html"
-      }
-    ];
- 
-    let currentIndex = 0;
-
-    function showBook(index) {
-      const book = books[index];
-      const container = document.getElementById('bookDisplay');
-      container.innerHTML = `
-        <div class="book">
-          <img src="${book.image}" alt="${book.title}" width="400" height="600" style="object-fit: cover; border: 1px solid #ccc; border-radius: 4px;">
-          <div class="book-links">
-            <a href="${book.reviewLink}" target="_blank">Read Review</a> 
-            <a href="${book.publisherLink}" target="_blank">Publisher Page</a> 
-            <a href="${book.webpages}" target="_blank">Programs</a>
-          </div>
-        </div>
-      `;
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
     }
-
-    function prevBook() {
-      currentIndex = (currentIndex - 1 + books.length) % books.length;
-      showBook(currentIndex);
+    </style>
+    </head>
+    <body>
+    <head>
+        <title>A simple HTML document</title>
+    </head>
+    
+    <table class = "center" border = "2">
+      <tr>
+    
+     <td><a href="https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293">
+         <img src="A_Simple_Intro_Python.png" width = "260"> </a>
+      <center><p><span></span><a
+      href="https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293">CRC Press</a><span
+      >&nbsp;&nbsp;&nbsp;</span><a
+      href="https://github.com/proflynch/A-Simple-Introduction-to-Python">GitHub Files</a>
+      <br>
+      <a href="https://drstephenlynch.github.io/webpages/A-Simple-Introduction-to-Python-Solutions.html">Solution Notebook</a>
+      <span
+      ></p>
+        </td>
+    
+        <td><a href="https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#">
+       <img src="PSCAI_Cover.png" width = "270"> </a>
+       <center> <p><span></span><a
+       href="https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#">CRC Press</a><span
+      >&nbsp;&nbsp;&nbsp;</span><a
+      href="https://github.com/proflynch/CRC-Press/">Programs</a>
+      <br>
+       <a href="https://www.mathscareers.org.uk/python-for-a-level-maths-undergraduate-maths-and-employability/">Why Python?</a>
+        &nbsp;&nbsp;&nbsp;</span><a href="PSCAI_Book_Review_IMA.pdf">IMA Review</a>
+      <span></span></p>
+        </td>
+        
+        <td><a href="https://link.springer.com/book/10.1007/978-3-319-78145-7">
+       <img src="DSAP_Cover.png" width = "260"> </a>
+      <center> <p><span></span><a
+      href="http://www.springer.com/us/book/9783319781440">Springer</a><span
+      >&nbsp;&nbsp;&nbsp;</span><a
+      href="https://github.com/springer-math/dynamical-systems-with-applications-using-python">Programs</a>
+      <br>
+      <a href="https://drstephenlynch.github.io/webpages/DSAP_Jupyter_Notebook.html">Notebook</a>
+      <span>&nbsp;&nbsp;&nbsp;</span><a
+      href="https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-python">MAA Review</a>
+      </p>
+    
+    
+    
+        </td>
+    
+      </tr>
+    </table> 
+    
+    <br>
+    
+    <!-- Middle Table! -->
+    <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
     }
+    </style>
+    </head>
+    <body>
+    <head>
+        <title>A simple HTML document</title>
+    </head>
+    
+    
+    <table class = "center" border = "2">
+      <tr>
+        
+        <td><a href="https://link.springer.com/book/10.1007/978-3-319-06820-6#otherversion=9783319330419">
+        <img src="MATLABbook.jpeg" width = "263"> </a>
+      <center><p><span></span><a
+      href="http://www.springer.com/us/book/9783319068190#otherversion=9783319330419">Springer</a><span
+      >&nbsp;&nbsp;&nbsp;</span><a
+      href="http://www.mathworks.com/matlabcentral/fileexchange/authors/6536">Programs</a>
+    
+      <br>
+      <a href="https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-matlab">MAA Review</a>
+      <span
+      ></p>
+        </td>
+    
+        
+        <td><a href="https://link.springer.com/book/10.1007/978-3-319-61485-4">
+        <img src="Mathematica_2ed.jpeg" width = "265"> </a>
+         <center><p><span></span><a
+      href="http://www.springer.com/us/book/9783319614847">Springer</a><span
+      >&nbsp;&nbsp;&nbsp;</span><a
+      href="http://library.wolfram.com/infocenter/Books/9563/">Notebook</a>
+      <br>
+      <a href="https://ima.org.uk/10871/dynamical-systems-with-applications-using-mathematica-2nd-edition/">IMA Review</a>
+      <span
+      ></p>
+        </td> 
+    
+        <td><a href="https://link.springer.com/book/10.1007/978-0-8176-4605-9">
+        <img src="MAPLE_COVER_JPEG.jpeg" width = "263"> </a>
+        <center><p><span></span><a
+      href="http://www.springer.com/us/book/9780817643898">Springer</a><span
+      >&nbsp;&nbsp;&nbsp;</span><a
+      href="http://www.doc.mmu.ac.uk/STAFF/S.Lynch/cover1.html">Web Pages</a> 
+      <br>
+       <a href="https://link.springer.com/book/10.1007/978-0-8176-4605-9#about-book-reviews">Reviews</a>
+      <span
+      ></p>
+        </td>
+      </tr>
+    </table> 
 
-    function nextBook() {
-      currentIndex = (currentIndex + 1) % books.length;
-      showBook(currentIndex);
-    }
-
-    // Show first book on page load
-    showBook(currentIndex);
-  
-  </script>
-</center>
     <br>
 
 <!-- End Page Content -->
