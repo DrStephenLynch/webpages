@@ -9,6 +9,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 90%;               /* Takes up 90% of screen width */
+      margin: 0 auto;           /* Center horizontally */
+    }
+
+    header, main, footer {
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+  
+
+    /* Optional: Adjust padding/font size for smaller screens */
+    @media (max-width: 600px) {
+      header, main, footer {
+        padding: 15px;
+      }
+    }
+  </style>
+
+
 </head>
 <body>
 
@@ -42,7 +72,7 @@
 
   .carousel-container {
     position: relative;
-    width: 500px;
+    width: 50%;
     margin: auto;
   }
 
@@ -88,7 +118,7 @@
 </style>
 
 <center>
-<h2>Recent Books by Professor Stephen Lynch</h2>
+<h2>Recent Books</h2>
 
   <div class="carousel-container">
     <button class="arrow left" onclick="prevBook()">&#8592;</button>
