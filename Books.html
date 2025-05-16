@@ -1,187 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Professor Lynch Books</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Professor Lynch Books</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Internal Styles -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, h1 {
+      font-family: "Raleway", Arial, sans-serif;
+    }
+
+    h1 {
+      letter-spacing: 6px;
+    }
+
+    body {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .book-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .book {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .book img {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .book-links a {
+      display: block;
+      margin: 5px 0;
+      color: blue;
+      text-decoration: none;
+      word-wrap: break-word;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .arrow.left {
+      left: -30px;
+    }
+
+    .arrow.right {
+      right: -30px;
+    }
+
+    .w3-row-padding img {
+      margin-bottom: 12px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    table.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+
+      header, main, footer {
+        padding: 15px;
+      }
+
+      .arrow {
+        font-size: 1.5rem;
+      }
+
+      .arrow.left {
+        left: -20px;
+      }
+
+      .arrow.right {
+        right: -20px;
+      }
+
+      .book-links a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- !PAGE CONTENT! -->
+<!-- Page Content Container -->
 <div class="w3-content" style="max-width:1500px">
 
-<!-- Header -->
-<header class="w3-panel w3-center w3-opacity" style="padding:16px 16px">
-  <h1 class="w3-xlarge">Professor</h1>
-  <h1>Stephen Lynch NTF FIMA SFHEA</h1>
-  
-  <div class="w3-padding-32">
-    <div class="w3-bar w3-border">
-      <a href="https://www.lboro.ac.uk/departments/compsci/staff/stephen-lynch/" class="w3-bar-item w3-button">Home</a>
-      <a href="https://drstephenlynch.github.io/webpages/" class="w3-bar-item w3-button w3-light-grey">Personal Homepage</a>
-      <a href="https://drstephenlynch.github.io/webpages/RefereedArticles.html" class="w3-bar-item w3-button">Publications</a>
-      <a href="https://drstephenlynch.github.io/webpages/Research.html" class="w3-bar-item w3-button w3-light-grey">Research</a>
-      <a href="https://drstephenlynch.github.io/webpages/Workshops.html" class="w3-bar-item w3-button">Workshops</a>
-      <a href="https://drstephenlynch.github.io/webpages/SchoolsLiaison.html" class="w3-bar-item w3-button w3-light-grey">Schools</a>
+  <!-- Header -->
+  <header class="w3-panel w3-center w3-opacity" style="padding:16px 16px">
+    <h1 class="w3-xlarge">Professor</h1>
+    <h1>Stephen Lynch NTF FIMA SFHEA</h1>
+    <div class="w3-padding-32">
+      <div class="w3-bar w3-border">
+        <a href="https://www.lboro.ac.uk/departments/compsci/staff/stephen-lynch/" class="w3-bar-item w3-button">Home</a>
+        <a href="https://drstephenlynch.github.io/webpages/" class="w3-bar-item w3-button w3-light-grey">Personal Homepage</a>
+        <a href="https://drstephenlynch.github.io/webpages/RefereedArticles.html" class="w3-bar-item w3-button">Publications</a>
+        <a href="https://drstephenlynch.github.io/webpages/Research.html" class="w3-bar-item w3-button w3-light-grey">Research</a>
+        <a href="https://drstephenlynch.github.io/webpages/Workshops.html" class="w3-bar-item w3-button">Workshops</a>
+        <a href="https://drstephenlynch.github.io/webpages/SchoolsLiaison.html" class="w3-bar-item w3-button w3-light-grey">Schools</a>
+      </div>
     </div>
+  </header>
+
+  <!-- Book Carousel -->
+  <h2>Recent Books</h2>
+  <div class="carousel-container">
+    <button class="arrow left" onclick="prevBook()">&#8592;</button>
+    <div class="book-display" id="bookDisplay">
+      <!-- Book will be injected here -->
+    </div>
+    <button class="arrow right" onclick="nextBook()">&#8594;</button>
   </div>
-</header>
 
+  <!-- Book Script -->
+  <script>
+    const books = [
+      {
+        title: "Book One",
+        image: "https://media.springernature.com/w316/springer-static/cover-hires/book/978-3-031-89066-6?as=webp",
+        reviewLink: "https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-matlab",
+        publisherLink: "https://link.springer.com/book/9783031890666",
+        webpages: "https://uk.mathworks.com/matlabcentral/profile/authors/63144"
+      },
+      {
+        title: "Book Two",
+        image: "https://drstephenlynch.github.io/webpages/PSCAI_Cover.png",
+        reviewLink: "https://drstephenlynch.github.io/webpages/PSCAI_Book_Review_IMA.pdf",
+        publisherLink: "https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#",
+        webpages: "https://github.com/proflynch/CRC-Press/"
+      },
+      {
+        title: "Book Three",
+        image: "https://drstephenlynch.github.io/webpages/A_Simple_Intro_Python.png",
+        reviewLink: "https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293",
+        publisherLink: "https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293",
+        webpages: "https://github.com/proflynch/A-Simple-Introduction-to-Python"
+      },
+      {
+        title: "Book Four",
+        image: "https://drstephenlynch.github.io/webpages/DSAP_Cover.png",
+        reviewLink: "https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-python",
+        publisherLink: "https://link.springer.com/book/10.1007/978-3-319-78145-7",
+        webpages: "https://github.com/springer-math/dynamical-systems-with-applications-using-python"
+      },
+      {
+        title: "Book Five",
+        image: "https://drstephenlynch.github.io/webpages/Mathematica_2ed.jpeg",
+        reviewLink: "https://ima.org.uk/10871/dynamical-systems-with-applications-using-mathematica-2nd-edition/",
+        publisherLink: "https://link.springer.com/book/10.1007/978-3-319-61485-4",
+        webpages: "http://library.wolfram.com/infocenter/Books/9563/"
+      },
+      {
+        title: "Book Six",
+        image: "https://drstephenlynch.github.io/webpages/MAPLE_COVER_JPEG.jpeg",
+        reviewLink: "https://link.springer.com/book/10.1007/978-0-8176-4605-9#about-book-reviews",
+        publisherLink: "https://link.springer.com/book/10.1007/978-0-8176-4605-9",
+        webpages: "https://helward.mmu.ac.uk/STAFF/S.Lynch/cover1.html"
+      }
+    ];
 
-<!-- Top Table! -->
-<style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
+    let currentIndex = 0;
+
+    function showBook(index) {
+      const book = books[index];
+      const container = document.getElementById('bookDisplay');
+      container.innerHTML = `
+        <div class="book">
+          <img src="${book.image}" alt="${book.title}">
+          <div class="book-links">
+            <a href="${book.reviewLink}" target="_blank">Read Review</a>
+            <a href="${book.publisherLink}" target="_blank">Publisher Page</a>
+            <a href="${book.webpages}" target="_blank">Programs</a>
+          </div>
+        </div>
+      `;
     }
-    </style>
-    </head>
-    <body>
-    <head>
-        <title>A simple HTML document</title>
-    </head>
-    
-    <table class = "center" border = "2">
-      <tr>
-    
-     <td><a href="https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293">
-         <img src="A_Simple_Intro_Python.png" width = "260"> </a>
-      <center><p><span></span><a
-      href="https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293">CRC Press</a><span
-      >&nbsp;&nbsp;&nbsp;</span><a
-      href="https://github.com/proflynch/A-Simple-Introduction-to-Python">GitHub Files</a>
-      <br>
-      <a href="https://drstephenlynch.github.io/webpages/A-Simple-Introduction-to-Python-Solutions.html">Solution Notebook</a>
-      <span
-      ></p>
-        </td>
-    
-        <td><a href="https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#">
-       <img src="PSCAI_Cover.png" width = "270"> </a>
-       <center> <p><span></span><a
-       href="https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#">CRC Press</a><span
-      >&nbsp;&nbsp;&nbsp;</span><a
-      href="https://github.com/proflynch/CRC-Press/">Programs</a>
-      <br>
-       <a href="https://www.mathscareers.org.uk/python-for-a-level-maths-undergraduate-maths-and-employability/">Why Python?</a>
-        &nbsp;&nbsp;&nbsp;</span><a href="PSCAI_Book_Review_IMA.pdf">IMA Review</a>
-      <span></span></p>
-        </td>
-        
-        <td><a href="https://link.springer.com/book/10.1007/978-3-319-78145-7">
-       <img src="DSAP_Cover.png" width = "260"> </a>
-      <center> <p><span></span><a
-      href="http://www.springer.com/us/book/9783319781440">Springer</a><span
-      >&nbsp;&nbsp;&nbsp;</span><a
-      href="https://github.com/springer-math/dynamical-systems-with-applications-using-python">Programs</a>
-      <br>
-      <a href="https://drstephenlynch.github.io/webpages/DSAP_Jupyter_Notebook.html">Notebook</a>
-      <span>&nbsp;&nbsp;&nbsp;</span><a
-      href="https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-python">MAA Review</a>
-      </p>
-    
-    
-    
-        </td>
-    
-      </tr>
-    </table> 
-    
-    <br>
-    
-    <!-- Middle Table! -->
-    <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
+
+    function prevBook() {
+      currentIndex = (currentIndex - 1 + books.length) % books.length;
+      showBook(currentIndex);
     }
-    </style>
-    </head>
-    <body>
-    <head>
-        <title>A simple HTML document</title>
-    </head>
-    
-    
-    <table class = "center" border = "2">
-      <tr>
-        
-        <td><a href="https://link.springer.com/book/10.1007/978-3-319-06820-6#otherversion=9783319330419">
-        <img src="MATLABbook.jpeg" width = "263"> </a>
-      <center><p><span></span><a
-      href="http://www.springer.com/us/book/9783319068190#otherversion=9783319330419">Springer</a><span
-      >&nbsp;&nbsp;&nbsp;</span><a
-      href="http://www.mathworks.com/matlabcentral/fileexchange/authors/6536">Programs</a>
-    
-      <br>
-      <a href="https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-matlab">MAA Review</a>
-      <span
-      ></p>
-        </td>
-    
-        
-        <td><a href="https://link.springer.com/book/10.1007/978-3-319-61485-4">
-        <img src="Mathematica_2ed.jpeg" width = "265"> </a>
-         <center><p><span></span><a
-      href="http://www.springer.com/us/book/9783319614847">Springer</a><span
-      >&nbsp;&nbsp;&nbsp;</span><a
-      href="http://library.wolfram.com/infocenter/Books/9563/">Notebook</a>
-      <br>
-      <a href="https://ima.org.uk/10871/dynamical-systems-with-applications-using-mathematica-2nd-edition/">IMA Review</a>
-      <span
-      ></p>
-        </td> 
-    
-        <td><a href="https://link.springer.com/book/10.1007/978-0-8176-4605-9">
-        <img src="MAPLE_COVER_JPEG.jpeg" width = "263"> </a>
-        <center><p><span></span><a
-      href="http://www.springer.com/us/book/9780817643898">Springer</a><span
-      >&nbsp;&nbsp;&nbsp;</span><a
-      href="http://www.doc.mmu.ac.uk/STAFF/S.Lynch/cover1.html">Web Pages</a> 
-      <br>
-       <a href="https://link.springer.com/book/10.1007/978-0-8176-4605-9#about-book-reviews">Reviews</a>
-      <span
-      ></p>
-        </td>
-      </tr>
-    </table> 
 
-    <br>
-
-<!-- End Page Content -->
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
-  <a href="https://www.facebook.com/stephen.lynch.12935"> <i class="fa fa-facebook-official fa-2x w3-hover-opacity"></i></a>&nbsp; &nbsp; 
-  <a href="https://www.linkedin.com/in/professor-stephen-lynch-8b2408163/"><i class="fa fa-linkedin fa-2x w3-hover-opacity"></i></a>&nbsp; &nbsp; 
-  <a href="https://github.com/proflynch"><i class="fa fa-github fa-2x w3-hover-opacity"></i></a>&nbsp; &nbsp; 
-  <a href="https://github.com/DrStephenLynch"><i class="fa fa-github-alt fa-2x w3-hover-opacity"></i></a>&nbsp; &nbsp; 
-  <a href="https://x.com/DrStephenLynch"><i class="fa fa-twitter fa-2x w3-hover-opacity"></i></a>
-  <p> &#169; Professor Stephen Lynch NTF FIMA SFHEA<p>
-</footer>
-
-<style>
-  body,h1 {font-family: "Raleway", Arial, sans-serif}
-  h1 {letter-spacing: 6px}
-  .w3-row-padding img {margin-bottom: 12px}
-  </style>
-  
-  <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
+    function nextBook() {
+      currentIndex = (currentIndex + 1) % books.length;
+      showBook(currentIndex);
     }
-    
-    table.center {
-      margin-left: auto; 
-      margin-right: auto;
-    }
-    </style>
-    
+
+    showBook(currentIndex);
+  </script>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large">
+    <a href="https://www.facebook.com/stephen.lynch.12935"><i class="fa fa-facebook-official fa-2x w3-hover-opacity"></i></a>&nbsp;&nbsp;
+    <a href="https://www.linkedin.com/in/professor-stephen-lynch-8b2408163/"><i class="fa fa-linkedin fa-2x w3-hover-opacity"></i></a>&nbsp;&nbsp;
+    <a href="https://github.com/proflynch"><i class="fa fa-github fa-2x w3-hover-opacity"></i></a>&nbsp;&nbsp;
+    <a href="https://github.com/DrStephenLynch"><i class="fa fa-github-alt fa-2x w3-hover-opacity"></i></a>&nbsp;&nbsp;
+    <a href="https://x.com/DrStephenLynch"><i class="fa fa-twitter fa-2x w3-hover-opacity"></i></a>
+    <p>&#169; Professor Stephen Lynch NTF FIMA SFHEA</p>
+  </footer>
+
+</div>
 </body>
 </html>
+
