@@ -56,14 +56,15 @@
       align-items: center;
     }
 
-    .book img {
-      width: 100%;
-      max-width: 300px;
-      aspect-ratio: 2 / 3;
-      object-fit: cover;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+.book img {
+  display: block;
+  width: 300px;
+  height: 450px;
+  max-width: 100%;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
     .book-links a {
       display: block;
@@ -167,50 +168,57 @@
   <!-- Book Script -->
   <script>
     const books = [
-      {
+     {
         title: "Book One",
+        image: "https://images.routledge.com/common/jackets/crclarge/978104111/9781041111160.jpg",
+        reviewLink: "https://www.routledge.com/MATLABr-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781041111160",
+        publisherLink: "https://www.routledge.com/MATLABr-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781041111160",
+        webpages: "https://uk.mathworks.com/matlabcentral/profile/authors/63144"
+      },
+      {
+        title: "Book Two",
         image: "https://media.springernature.com/w316/springer-static/cover-hires/book/978-3-031-89066-6?as=webp",
         reviewLink: "https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-matlab",
         publisherLink: "https://link.springer.com/book/9783031890666",
         webpages: "https://uk.mathworks.com/matlabcentral/profile/authors/63144"
       },
       {
-        title: "Book Two",
+        title: "Book Three",
         image: "https://drstephenlynch.github.io/webpages/PSCAI_Cover.png",
         reviewLink: "https://drstephenlynch.github.io/webpages/PSCAI_Book_Review_IMA.pdf",
         publisherLink: "https://www.routledge.com/Python-for-Scientific-Computing-and-Artificial-Intelligence/Lynch/p/book/9781032258713#",
         webpages: "https://github.com/proflynch/CRC-Press/"
       },
       {
-        title: "Book Three",
+        title: "Book Four",
         image: "https://drstephenlynch.github.io/webpages/A_Simple_Intro_Python.png",
         reviewLink: "https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293",
         publisherLink: "https://www.routledge.com/A-Simple-Introduction-to-Python/Lynch/p/book/9781032750293",
         webpages: "https://github.com/proflynch/A-Simple-Introduction-to-Python"
       },
       {
-        title: "Book Four",
+        title: "Book Five",
         image: "https://drstephenlynch.github.io/webpages/DSAP_Cover.png",
         reviewLink: "https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-python",
         publisherLink: "https://link.springer.com/book/10.1007/978-3-319-78145-7",
         webpages: "https://drstephenlynch.github.io/webpages/DSAP_Jupyter_Notebook.html"
       },
       {
-        title: "Book Five",
+        title: "Book Six",
         image: "https://drstephenlynch.github.io/webpages/Mathematica_2ed.jpeg",
         reviewLink: "https://ima.org.uk/10871/dynamical-systems-with-applications-using-mathematica-2nd-edition/",
         publisherLink: "https://link.springer.com/book/10.1007/978-3-319-61485-4",
         webpages: "http://library.wolfram.com/infocenter/Books/9563/"
       },
       {
-        title: "Book Six",
+        title: "Book Seven",
         image: "https://drstephenlynch.github.io/webpages/MAPLE_COVER_JPEG.jpeg",
         reviewLink: "https://link.springer.com/book/10.1007/978-0-8176-4605-9#about-book-reviews",
         publisherLink: "https://link.springer.com/book/10.1007/978-0-8176-4605-9",
         webpages: "https://helward.mmu.ac.uk/STAFF/S.Lynch/cover1.html"
       },
       {
-        title: "Book Seven",
+        title: "Book Eight",
         image: "https://drstephenlynch.github.io/webpages/MATLABbook.jpeg",
         reviewLink: "https://old.maa.org/press/maa-reviews/dynamical-systems-with-applications-using-matlab",
         publisherLink: "https://link.springer.com/book/10.1007/978-3-319-06820-6",
